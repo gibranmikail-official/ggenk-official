@@ -31,6 +31,8 @@ export default function ServicesSection() {
                 "Kami menyediakan jasa pembuatan dan pengembangan Discord server yang profesional dan menarik. Mulai dari setup channel, role management, bot integration, hingga custom design yang sesuai dengan kebutuhan komunitas Anda.",
             gallery: [
                 "/services/server-dev/sd.png",
+                "/services/server-dev/sd-15.png",
+                "/services/server-dev/sd-16.png",
                 "/services/server-dev/sd-1.png",
                 "/services/server-dev/sd-2.png",
                 "/services/server-dev/sd-3.png",
