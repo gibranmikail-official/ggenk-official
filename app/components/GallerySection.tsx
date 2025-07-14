@@ -31,7 +31,7 @@ export default function GallerySection() {
         {
             id: 2,
             title: "Berkala Coffee - Ampera",
-            date: "15 Juni 2025",
+            date: "15 June 2025",
             thumbnail: "/gallery/02-berkala-coffee/bc-1.jpg",
             images: [
                 "/gallery/02-berkala-coffee/bc-1.jpg",
@@ -47,7 +47,7 @@ export default function GallerySection() {
         {
             id: 3,
             title: "Warkop Disko Agam - Kemang",
-            date: "1 Juni 2025",
+            date: "1 June 2025",
             thumbnail: "/gallery/03-warkop-agam/wda-1.jpg",
             images: [
                 "/gallery/03-warkop-agam/wda-1.jpg",
@@ -64,7 +64,7 @@ export default function GallerySection() {
         {
             id: 4,
             title: "Soft Launching Beyond 9 to 5",
-            date: "1 Juni 2025",
+            date: "1 June 2025",
             thumbnail: "/gallery/04-b925/b925-1.png",
             images: [
                 "/gallery/04-b925/b925-2.jpg",
@@ -79,7 +79,7 @@ export default function GallerySection() {
         {
             id: 5,
             title: "NYCheesecake Croissant & Coffee",
-            date: "3 Mei 2025",
+            date: "3 May 2025",
             thumbnail: "/gallery/05-nycheescake/nycc-4.jpg",
             images: [
                 "/gallery/05-nycheescake/nycc-1.jpg",
@@ -97,7 +97,7 @@ export default function GallerySection() {
         {
             id: 6,
             title: "Bukber H-1 Lebaran",
-            date: "30 Maret 2025",
+            date: "30 March 2025",
             thumbnail: "/gallery/06-bukber/bkr-3.png",
             images: [
                 "/gallery/06-bukber/bkr-1.png",
@@ -110,6 +110,69 @@ export default function GallerySection() {
                 "/gallery/06-bukber/bkr-8.jpg",
                 "/gallery/06-bukber/bkr-9.jpg",
                 "/gallery/06-bukber/bkr-10.jpg",
+            ],
+        },
+        {
+            id: 7,
+            title: "Perbakin Shooting Club",
+            date: "29 September 2024",
+            thumbnail: "/gallery/07-perbakin/pbm-2.jpg",
+            images: [
+                "/gallery/07-perbakin/pbm-1.jpg",
+                "/gallery/07-perbakin/pbm-2.jpg",
+                "/gallery/07-perbakin/pbm-3.jpg",
+                "/gallery/07-perbakin/pbm-4.jpg",
+                "/gallery/07-perbakin/pbm-5.jpg",
+                "/gallery/07-perbakin/pbm-6.jpg",
+                "/gallery/07-perbakin/pbm-7.jpg",
+                "/gallery/07-perbakin/pbm-8.jpg",
+                "/gallery/07-perbakin/pbm-9.jpg",
+                "/gallery/07-perbakin/pbm-10.jpg",
+                "/gallery/07-perbakin/pbm-11.jpg",
+                "/gallery/07-perbakin/pbm-12.jpg",
+            ],
+        },
+        {
+            id: 8,
+            title: "Skayris Graduation",
+            date: "7 September 2024",
+            thumbnail: "/gallery/08-skayris-grad/sg-1.jpg",
+            images: [
+                "/gallery/08-skayris-grad/sg-1.jpg",
+                "/gallery/08-skayris-grad/sg-2.jpg",
+                "/gallery/08-skayris-grad/sg-3.jpg",
+                "/gallery/08-skayris-grad/sg-4.jpg",
+                "/gallery/08-skayris-grad/sg-5.jpg",
+                "/gallery/08-skayris-grad/sg-6.jpg",
+                "/gallery/08-skayris-grad/sg-7.jpg",
+                "/gallery/08-skayris-grad/sg-8.jpg",
+                "/gallery/08-skayris-grad/sg-9.jpg",
+                "/gallery/08-skayris-grad/sg-10.jpg",
+                "/gallery/08-skayris-grad/sg-11.jpg",
+                "/gallery/08-skayris-grad/sg-12.jpg",
+                "/gallery/08-skayris-grad/sg-13.jpg",
+                "/gallery/08-skayris-grad/sg-14.jpg",
+            ],
+        },
+        {
+            id: 9,
+            title: "Java Jazz 2024",
+            date: "26 May 2024",
+            thumbnail: "/gallery/09-java-jazz/jj-1.jpg",
+            images: [
+                "/gallery/09-java-jazz/jj-1.jpg",
+                "/gallery/09-java-jazz/jj-2.jpg",
+                "/gallery/09-java-jazz/jj-3.jpg",
+                "/gallery/09-java-jazz/jj-4.jpg",
+                "/gallery/09-java-jazz/jj-5.jpg",
+                "/gallery/09-java-jazz/jj-6.jpg",
+                "/gallery/09-java-jazz/jj-7.jpg",
+                "/gallery/09-java-jazz/jj-8.jpg",
+                "/gallery/09-java-jazz/jj-9.jpg",
+                "/gallery/09-java-jazz/jj-10.jpg",
+                "/gallery/09-java-jazz/jj-11.jpg",
+                "/gallery/09-java-jazz/jj-12.jpg",
+                "/gallery/09-java-jazz/jj-13.jpg",
             ],
         },
     ];
@@ -144,9 +207,7 @@ export default function GallerySection() {
                         </span>{" "}
                         Moments
                     </h2>
-                    <p className="text-xl text-white/80">
-                        Momen-momen seru ketika kumpul bareng di dunia nyata
-                    </p>
+                    <p className="text-xl text-white/80">Momen-momen seru ketika kumpul bareng</p>
                 </motion.div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
