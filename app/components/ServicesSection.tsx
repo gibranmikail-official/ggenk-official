@@ -54,11 +54,15 @@ export default function ServicesSection() {
             title: "Custom Emoji/Sticker",
             description:
                 "Buat komunitas Anda lebih hidup dengan emoji dan sticker custom yang unik! Kami menyediakan jasa pembuatan emoji dan sticker berkualitas tinggi yang cocok untuk Discord, Youtube, Twitch, dan platform lainnya.",
-            gallery: ["/services/custom-sticker/cs-1.png", "/services/custom-sticker/cs-2.png"],
+            gallery: [
+                "/services/custom-sticker/cs-1.png",
+                "/services/custom-sticker/cs.png",
+                "/services/custom-sticker/cs-2.png",
+            ],
         },
         {
             icon: Target,
-            title: "Jasa Joki Valorant",
+            title: "Joki Valorant",
             description:
                 "Tingkatkan rank Valorant Anda dengan bantuan player berpengalaman! Kami menyediakan jasa joki Valorant yang aman dan terpercaya. Dari Iron hingga Radiant, kami siap membantu Anda mencapai rank impian.",
             gallery: [
@@ -69,17 +73,27 @@ export default function ServicesSection() {
         },
         {
             icon: Sword,
-            title: "Jasa Joki Genshin Impact",
+            title: "Genshin Impact",
             description:
                 "Butuh bantuan untuk menyelesaikan quest, farming material, atau meningkatkan Adventure Rank di Genshin Impact? Tim kami siap membantu Anda dengan layanan joki yang profesional dan aman untuk akun Anda.",
-            gallery: ["/services/joki-genshin/jgi-1.png"],
+            gallery: [
+                "/services/joki-genshin/jgi-1.png",
+                "/services/joki-genshin/jgi-2.png",
+                "/services/joki-genshin/jgi-3.png",
+                "/services/joki-genshin/jgi-4.png",
+            ],
         },
         {
             icon: Video,
-            title: "Video Editing / Motion Design",
+            title: "Video Editing & Video Motion",
             description:
                 "Wujudkan ide kreatif Anda menjadi video yang menakjubkan! Kami menyediakan jasa video editing dan motion design untuk berbagai kebutuhan, mulai dari konten social media, promotional video, hingga motion graphics yang eye-catching.",
-            gallery: ["/services/video-edit/vemd-1.png"],
+            gallery: [
+                "/services/video-edit/vemd-1.png",
+                "/services/video-edit/vemd-2.png",
+                "/services/video-edit/vemd-3.mp4",
+                "/services/video-edit/vemd-4.mp4",
+            ],
         },
     ];
 
@@ -180,18 +194,29 @@ export default function ServicesSection() {
                                 {/* Main Gallery Image */}
                                 <div className="relative mb-6">
                                     <div className="aspect-video bg-white/5 rounded-lg overflow-hidden">
-                                        <Image
-                                            src={
-                                                services[selectedService].gallery[currentGalleryIndex] ||
-                                                "/placeholder.svg"
-                                            }
-                                            alt={`${services[selectedService].title} - Image ${
-                                                currentGalleryIndex + 1
-                                            }`}
-                                            width={800}
-                                            height={600}
-                                            className="w-full h-full object-cover"
-                                        />
+                                        {services[selectedService].gallery[currentGalleryIndex].endsWith(
+                                            ".mp4"
+                                        ) ? (
+                                            <div className="w-full h-full flex items-center justify-center bg-black">
+                                                <video
+                                                    src={
+                                                        services[selectedService].gallery[currentGalleryIndex]
+                                                    }
+                                                    controls
+                                                    className="max-h-full max-w-full object-contain"
+                                                />
+                                            </div>
+                                        ) : (
+                                            <Image
+                                                src={services[selectedService].gallery[currentGalleryIndex]}
+                                                alt={`${services[selectedService].title} - Image ${
+                                                    currentGalleryIndex + 1
+                                                }`}
+                                                width={800}
+                                                height={600}
+                                                className="w-full h-full object-cover"
+                                            />
+                                        )}
                                     </div>
 
                                     {/* Navigation Buttons */}
@@ -231,15 +256,26 @@ export default function ServicesSection() {
                                                         : "border-white/20 hover:border-white/40"
                                                 }`}
                                             >
-                                                <Image
-                                                    src={image || "/placeholder.svg"}
-                                                    alt={`${services[selectedService].title} thumbnail ${
-                                                        imgIndex + 1
-                                                    }`}
-                                                    width={80}
-                                                    height={64}
-                                                    className="w-full h-full object-cover"
-                                                />
+                                                {image.endsWith(".mp4") ? (
+                                                    <video
+                                                        src={image}
+                                                        muted
+                                                        loop
+                                                        autoPlay
+                                                        playsInline
+                                                        className="w-full h-full object-cover"
+                                                    />
+                                                ) : (
+                                                    <Image
+                                                        src={image || "/placeholder.svg"}
+                                                        alt={`${services[selectedService].title} thumbnail ${
+                                                            imgIndex + 1
+                                                        }`}
+                                                        width={80}
+                                                        height={64}
+                                                        className="w-full h-full object-cover"
+                                                    />
+                                                )}
                                             </button>
                                         ))}
                                     </div>
