@@ -24,7 +24,7 @@ export default function HeroSection() {
                 </svg>
             ),
             label: "Discord",
-            href: "https://discord.gg/Ash5eZMVxM",
+            href: "https://discord.gg/yVpN7nnTWk",
         },
     ];
 
