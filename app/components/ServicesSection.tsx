@@ -102,6 +102,7 @@ export default function ServicesSection() {
                 "Wujudkan ide kreatif Anda menjadi custom clothing yang menakjubkan! Kami menyediakan jasa Design custom clothing untuk Roblox, mulai dari Shirt, T-Shirt hingga pants.",
             gallery: [
                 "/services/custom-jersey/RCC.png",
+                "/services/custom-jersey/RCC-1.png",
                 "/services/custom-jersey/RCC-2.png",
                 "/services/custom-jersey/RCC-3.png",
                 "/services/custom-jersey/RCC-4.png",
@@ -110,6 +111,10 @@ export default function ServicesSection() {
                 "/services/custom-jersey/RCC-7.png",
                 "/services/custom-jersey/RCC-8.png",
                 "/services/custom-jersey/RCC-9.png",
+                "/services/custom-jersey/RCC-13.png",
+                "/services/custom-jersey/RCC-10.png",
+                "/services/custom-jersey/RCC-11.png",
+                "/services/custom-jersey/RCC-12.png",
             ],
         },
     ];
