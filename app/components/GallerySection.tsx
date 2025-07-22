@@ -11,7 +11,23 @@ export default function GallerySection() {
 
     const galleries = [
         {
-            id: 1,
+            id: 10,
+            title: "BBQ - G-House",
+            date: "20 Juli 2025",
+            thumbnail: "/gallery/10-BBQ/BBQ-1.jpg",
+            images: [
+                "/gallery/10-BBQ/BBQ-1.jpg",
+                "/gallery/10-BBQ/BBQ-2.jpg",
+                "/gallery/10-BBQ/BBQ-3.jpg",
+                "/gallery/10-BBQ/BBQ-4.jpg",
+                "/gallery/10-BBQ/BBQ-5.jpg",
+                "/gallery/10-BBQ/BBQ-6.jpg",
+                "/gallery/10-BBQ/BBQ-7.jpg",
+                "/gallery/10-BBQ/BBQ-8.jpg",
+            ],
+        },
+        {
+            id: 9,
             title: "Menanti Senja - Cipete",
             date: "28 Juni 2025",
             thumbnail: "/gallery/01-menanti-senja/ms-1.jpg",
@@ -29,7 +45,7 @@ export default function GallerySection() {
             ],
         },
         {
-            id: 2,
+            id: 8,
             title: "Berkala Coffee - Ampera",
             date: "15 June 2025",
             thumbnail: "/gallery/02-berkala-coffee/bc-1.jpg",
@@ -45,7 +61,7 @@ export default function GallerySection() {
             ],
         },
         {
-            id: 3,
+            id: 7,
             title: "Warkop Disko Agam - Kemang",
             date: "1 June 2025",
             thumbnail: "/gallery/03-warkop-agam/wda-1.jpg",
@@ -62,7 +78,7 @@ export default function GallerySection() {
             ],
         },
         {
-            id: 4,
+            id: 6,
             title: "Soft Launching Beyond 9 to 5",
             date: "1 June 2025",
             thumbnail: "/gallery/04-b925/b925-1.png",
@@ -95,7 +111,7 @@ export default function GallerySection() {
             ],
         },
         {
-            id: 6,
+            id: 4,
             title: "Bukber H-1 Lebaran",
             date: "30 March 2025",
             thumbnail: "/gallery/06-bukber/bkr-3.png",
@@ -113,7 +129,7 @@ export default function GallerySection() {
             ],
         },
         {
-            id: 7,
+            id: 3,
             title: "Perbakin Shooting Club",
             date: "29 September 2024",
             thumbnail: "/gallery/07-perbakin/pbm-2.jpg",
@@ -133,7 +149,7 @@ export default function GallerySection() {
             ],
         },
         {
-            id: 8,
+            id: 2,
             title: "Skayris Graduation",
             date: "7 September 2024",
             thumbnail: "/gallery/08-skayris-grad/sg-1.jpg",
@@ -155,7 +171,7 @@ export default function GallerySection() {
             ],
         },
         {
-            id: 9,
+            id: 1,
             title: "Java Jazz 2024",
             date: "26 May 2024",
             thumbnail: "/gallery/09-java-jazz/jj-1.jpg",
