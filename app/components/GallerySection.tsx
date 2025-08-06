@@ -11,6 +11,21 @@ export default function GallerySection() {
 
     const galleries = [
         {
+            id: 11,
+            title: "GGENK x Interbond - Lippo mall Kemang",
+            date: "26 Juli 2025",
+            thumbnail: "/gallery/11-kemvil/IntbxGG.png",
+            images: [
+                "/gallery/11-kemvil/kmv-1.jpg",
+                "/gallery/11-kemvil/kmv-2.jpg",
+                "/gallery/11-kemvil/kmv-3.jpg",
+                "/gallery/11-kemvil/kmv-4.jpg",
+                "/gallery/11-kemvil/kmv-5.jpg",
+                "/gallery/11-kemvil/kmv-6.jpg",
+                "/gallery/11-kemvil/kmv-7.jpg",
+            ],
+        },
+        {
             id: 10,
             title: "BBQ - G-House",
             date: "20 Juli 2025",
