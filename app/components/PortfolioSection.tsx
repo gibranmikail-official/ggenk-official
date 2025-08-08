@@ -65,7 +65,7 @@ export default function PortfolioSection() {
                 "Event Scheduling System",
             ],
             technology: ["Discord", "Discord.Js"],
-            integration: ["Diskohook", "Moderation Tools"],
+            integration: ["Discohook", "Moderation Tools"],
             link: "https://discord.gg/YKF8ye34Yp",
         },
         {
@@ -80,6 +80,39 @@ export default function PortfolioSection() {
             technology: ["Adobe Illustrator", "Photoshop", "Procreate"],
             integration: ["Discord"],
             link: "#",
+        },
+        {
+            id: 4,
+            title: "IndoSky",
+            type: "Discord Server Development",
+            thumbnail: "/portfolio/04-indosky/IS.png",
+            description:
+                "Pengembangan Discord server untuk komunitas Roblox. Dilengkapi dengan sistem role otomatis, bot custom, dan channel management yang terorganisir.",
+            images: [
+                "/portfolio/04-indosky/IS-1.png",
+                "/portfolio/04-indosky/IS-2.png",
+                "/portfolio/04-indosky/IS-3.png",
+                "/portfolio/04-indosky/IS-4.png",
+                "/portfolio/04-indosky/IS-5.png",
+                "/portfolio/04-indosky/IS-6.png",
+                "/portfolio/04-indosky/IS-7.png",
+                "/portfolio/04-indosky/IS-8.png",
+                "/portfolio/04-indosky/IS-9.png",
+                "/portfolio/04-indosky/IS-10.png",
+                "/portfolio/04-indosky/IS-11.png",
+            ],
+            features: [
+                "Auto Role System",
+                "Custom Bot Integration",
+                "Voice Channel Management",
+                "Ticketing System",
+                "Invite Tracker",
+                "User Leveling",
+                "Adjust Permissions",
+            ],
+            technology: ["Discord", "Discord.Js"],
+            integration: ["Discohook", "Moderation Tools"],
+            link: "https://discord.gg/PPu4yPrPad",
         },
     ];
 
