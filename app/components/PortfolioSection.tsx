@@ -89,6 +89,11 @@ export default function PortfolioSection() {
             description:
                 "Pengembangan Discord server untuk komunitas Roblox. Dilengkapi dengan sistem role otomatis, bot custom, dan channel management yang terorganisir.",
             images: [
+                "/portfolio/04-indosky/IS-13.png",
+                "/portfolio/04-indosky/IS-14.png",
+                "/portfolio/04-indosky/IS-15.png",
+                "/portfolio/04-indosky/IS-16.png",
+                "/portfolio/04-indosky/IS-17.png",
                 "/portfolio/04-indosky/IS-1.png",
                 "/portfolio/04-indosky/IS-2.png",
                 "/portfolio/04-indosky/IS-3.png",
@@ -100,6 +105,7 @@ export default function PortfolioSection() {
                 "/portfolio/04-indosky/IS-9.png",
                 "/portfolio/04-indosky/IS-10.png",
                 "/portfolio/04-indosky/IS-11.png",
+                "/portfolio/04-indosky/IS-12.png",
             ],
             features: [
                 "Auto Role System",
