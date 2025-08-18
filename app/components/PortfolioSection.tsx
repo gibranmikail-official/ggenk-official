@@ -41,7 +41,7 @@ export default function PortfolioSection() {
             type: "Discord Server Development",
             thumbnail: "/portfolio/01-b925/b925-1.png",
             description:
-                "Pengembangan Discord server untuk komunitas freelance dengan 5000+ member. Dilengkapi dengan sistem role otomatis, bot custom, dan channel management yang terorganisir.",
+                "Pengembangan Discord server untuk komunitas freelancer dengan 5000+ member. Dilengkapi dengan sistem role otomatis, bot custom, dan channel management yang terorganisir. Server ini dikembangkan oleh prodhite, Royikes, Rapleh, JohNest",
             images: [
                 "/portfolio/01-b925/b925-1.png",
                 "/portfolio/01-b925/b925-2.png",
@@ -83,11 +83,47 @@ export default function PortfolioSection() {
         },
         {
             id: 4,
+            title: "Bun's Ninja",
+            type: "Discord Server Development",
+            thumbnail: "/portfolio/05-buns-Ninja/BN.png",
+            description:
+                "Server Discord resmi komunitas Abun Sungkar dengan lebih dari 9000+ member aktif! Dibangun dengan sistem otomatisasi yang canggih, mulai dari auto-role, custom bot, hingga manajemen channel yang rapi dan interaktif. Tempat nongkrong seru, diskusi, dan terhubung langsung dengan komunitas Abun Sungkar dalam suasana yang tertata dan menyenangkan. Server ini dikembangkan oleh Royikes",
+
+            images: [
+                "/portfolio/05-buns-Ninja/BN.png",
+                "/portfolio/05-buns-Ninja/BN-01.png",
+                "/portfolio/05-buns-Ninja/BN-02.png",
+                "/portfolio/05-buns-Ninja/BN-03.png",
+                "/portfolio/05-buns-Ninja/BN-04.png",
+                "/portfolio/05-buns-Ninja/BN-05.png",
+                "/portfolio/05-buns-Ninja/BN-06.png",
+                "/portfolio/05-buns-Ninja/BN-07.png",
+                "/portfolio/05-buns-Ninja/BN-08.png",
+                "/portfolio/05-buns-Ninja/BN-09.png",
+                "/portfolio/05-buns-Ninja/BN-10.png",
+                "/portfolio/05-buns-Ninja/BN-11.png",
+                "/portfolio/05-buns-Ninja/BN-12.png",
+                "/portfolio/05-buns-Ninja/BN-13.png",
+            ],
+            features: [
+                "Auto Role System",
+                "Custom Bot Integration",
+                "Voice Channel Management",
+                "Private Channel",
+                "User Leveling",
+                "Adjust Permissions",
+            ],
+            technology: ["Discord", "Discord.Js"],
+            integration: ["Discohook", "Moderation Tools", "Youtube"],
+            link: "https://discord.gg/bunsninja",
+        },
+        {
+            id: 5,
             title: "IndoSky",
             type: "Discord Server Development",
             thumbnail: "/portfolio/04-indosky/IS.png",
             description:
-                "Pengembangan Discord server untuk komunitas Roblox. Dilengkapi dengan sistem role otomatis, bot custom, dan channel management yang terorganisir.",
+                "Server Discord resmi komunitas Roblox IndoSky dengan lebih dari 2000+ member aktif! Dilengkapi sistem otomatisasi canggih seperti auto-role, bot custom, ticketing system, hingga manajemen channel yang rapi. Tempat terbaik untuk berkumpul, berdiskusi, dan menikmati pengalaman komunitas Roblox yang seru dan terorganisir. Server ini dikembangkan oleh prodhite.",
             images: [
                 "/portfolio/04-indosky/IS-13.png",
                 "/portfolio/04-indosky/IS-14.png",
@@ -106,6 +142,11 @@ export default function PortfolioSection() {
                 "/portfolio/04-indosky/IS-10.png",
                 "/portfolio/04-indosky/IS-11.png",
                 "/portfolio/04-indosky/IS-12.png",
+                "/portfolio/04-indosky/IS-18.png",
+                "/portfolio/04-indosky/IS-19.png",
+                "/portfolio/04-indosky/IS-20.png",
+                "/portfolio/04-indosky/IS-21.png",
+                "/portfolio/04-indosky/IS-22.png",
             ],
             features: [
                 "Auto Role System",
@@ -117,8 +158,41 @@ export default function PortfolioSection() {
                 "Adjust Permissions",
             ],
             technology: ["Discord", "Discord.Js"],
-            integration: ["Discohook", "Moderation Tools"],
+            integration: ["Discohook", "Moderation Tools", "Roblox Studio"],
             link: "https://discord.gg/PPu4yPrPad",
+        },
+        {
+            id: 6,
+            title: "Aca-demy",
+            type: "Discord Server Development",
+            thumbnail: "/portfolio/06-aca-demy/AD.png",
+            description:
+                "Server Discord resmi komunitas Aca (Callista Arum) dengan lebih dari 5000+ member aktif! Dibangun dengan sistem otomatisasi yang canggih, mulai dari auto-role, custom bot, hingga manajemen channel yang rapi dan interaktif. Tempat nongkrong seru, diskusi, dan terhubung langsung dengan komunitas Aca dalam suasana yang tertata dan menyenangkan. Server ini dikembangkan oleh Royikes",
+
+            images: [
+                "/portfolio/06-aca-demy/AD.png",
+                "/portfolio/06-aca-demy/AD-01.png",
+                "/portfolio/06-aca-demy/AD-02.png",
+                "/portfolio/06-aca-demy/AD-03.png",
+                "/portfolio/06-aca-demy/AD-04.png",
+                "/portfolio/06-aca-demy/AD-05.png",
+                "/portfolio/06-aca-demy/AD-06.png",
+                "/portfolio/06-aca-demy/AD-07.png",
+                "/portfolio/06-aca-demy/AD-08.png",
+                "/portfolio/06-aca-demy/AD-09.png",
+                "/portfolio/06-aca-demy/AD-10.png",
+            ],
+            features: [
+                "Auto Role System",
+                "Custom Bot Integration",
+                "Voice Channel Management",
+                "Private Channel",
+                "User Leveling",
+                "Adjust Permissions",
+            ],
+            technology: ["Discord", "Discord.Js"],
+            integration: ["Discohook", "Moderation Tools", "Youtube"],
+            link: "https://discord.gg/KqdBWf74Vp",
         },
     ];
 
