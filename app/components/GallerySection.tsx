@@ -44,8 +44,6 @@ export default function GallerySection() {
                 "/gallery/13-BBQ-2/BBQ-26.jpg",
                 "/gallery/13-BBQ-2/BBQ-27.jpg",
                 "/gallery/13-BBQ-2/BBQ-28.jpg",
-                "/gallery/13-BBQ-2/BBQ-29.jpg",
-                "/gallery/13-BBQ-2/BBQ-30.jpg",
             ],
         },
         {
