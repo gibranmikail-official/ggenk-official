@@ -50,6 +50,45 @@ export default function ServicesSection() {
             ],
         },
         {
+            icon: Server,
+            title: "Website Development",
+            description:
+                "Kami menyediakan jasa pembuatan dan pengembangan website yang modern, responsif, dan fungsional. Mulai dari landing page, company profile, hingga sistem berbasis web yang disesuaikan dengan kebutuhan bisnis Anda.",
+            gallery: [
+                "/services/CS.png",
+                ],
+        },
+                {
+            icon: Video,
+            title: "Video Editing & Video Motion",
+            description:
+                "Wujudkan ide kreatif Anda menjadi video yang menakjubkan! Kami menyediakan jasa video editing dan motion design untuk berbagai kebutuhan, mulai dari konten social media, promotional video, hingga motion graphics yang eye-catching.",
+            gallery: [
+                "/services/video-edit/vemd-1.png",
+                "/services/video-edit/vemd-2.png",
+                "/services/video-edit/vemd-3.mp4",
+                "/services/video-edit/vemd-4.mp4",
+            ],
+        },
+        {
+            icon: Smile,
+            title: "Graphic Design",
+            description:
+                "Kami menyediakan jasa desain grafis untuk berbagai kebutuhan digital maupun cetak. Mulai dari banner, poster, feed media sosial, hingga konten promosi dengan gaya visual yang menarik dan profesional.",
+            gallery: [
+                "/services/CS.png",
+            ],
+        },
+        {
+            icon: Smile,
+            title: "Logo Design",
+            description:
+                "Wujudkan identitas brand Anda dengan logo yang unik dan bermakna. Kami menyediakan jasa pembuatan logo profesional yang disesuaikan dengan karakter dan nilai bisnis Anda.",
+            gallery: [
+                "/services/CS.png",
+            ],
+        },
+        {
             icon: Smile,
             title: "Custom Emoji/Sticker",
             description:
@@ -81,18 +120,6 @@ export default function ServicesSection() {
                 "/services/joki-genshin/jgi-2.png",
                 "/services/joki-genshin/jgi-3.png",
                 "/services/joki-genshin/jgi-4.png",
-            ],
-        },
-        {
-            icon: Video,
-            title: "Video Editing & Video Motion",
-            description:
-                "Wujudkan ide kreatif Anda menjadi video yang menakjubkan! Kami menyediakan jasa video editing dan motion design untuk berbagai kebutuhan, mulai dari konten social media, promotional video, hingga motion graphics yang eye-catching.",
-            gallery: [
-                "/services/video-edit/vemd-1.png",
-                "/services/video-edit/vemd-2.png",
-                "/services/video-edit/vemd-3.mp4",
-                "/services/video-edit/vemd-4.mp4",
             ],
         },
         {
