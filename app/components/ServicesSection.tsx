@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Server, Smile, Target, Sword, Video, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { Server, Smile, Target, Sword, Video, X, ChevronLeft, ChevronRight, Code, Palette, Origami, Shirt, Film, Gamepad2 } from "lucide-react";
 import Image from "next/image";
 
 export default function ServicesSection() {
@@ -25,7 +25,7 @@ export default function ServicesSection() {
 
     const services = [
         {
-            icon: Server,
+            icon: Code,
             title: "Discord Server Development",
             description:
                 "Kami menyediakan jasa pembuatan dan pengembangan Discord server yang profesional dan menarik. Mulai dari setup channel, role management, bot integration, hingga custom design yang sesuai dengan kebutuhan komunitas Anda.",
@@ -50,7 +50,7 @@ export default function ServicesSection() {
             ],
         },
         {
-            icon: Server,
+            icon: Code,
             title: "Website Development",
             description:
                 "Kami menyediakan jasa pembuatan dan pengembangan website yang modern, responsif, dan fungsional. Mulai dari landing page, company profile, hingga sistem berbasis web yang disesuaikan dengan kebutuhan bisnis Anda.",
@@ -59,7 +59,7 @@ export default function ServicesSection() {
                 ],
         },
                 {
-            icon: Video,
+            icon: Film,
             title: "Video Editing & Video Motion",
             description:
                 "Wujudkan ide kreatif Anda menjadi video yang menakjubkan! Kami menyediakan jasa video editing dan motion design untuk berbagai kebutuhan, mulai dari konten social media, promotional video, hingga motion graphics yang eye-catching.",
@@ -71,7 +71,7 @@ export default function ServicesSection() {
             ],
         },
         {
-            icon: Smile,
+            icon: Palette,
             title: "Graphic Design",
             description:
                 "Kami menyediakan jasa desain grafis untuk berbagai kebutuhan digital maupun cetak. Mulai dari banner, poster, feed media sosial, hingga konten promosi dengan gaya visual yang menarik dan profesional.",
@@ -80,7 +80,7 @@ export default function ServicesSection() {
             ],
         },
         {
-            icon: Smile,
+            icon: Origami,
             title: "Logo Design",
             description:
                 "Wujudkan identitas brand Anda dengan logo yang unik dan bermakna. Kami menyediakan jasa pembuatan logo profesional yang disesuaikan dengan karakter dan nilai bisnis Anda.",
@@ -100,7 +100,7 @@ export default function ServicesSection() {
             ],
         },
         {
-            icon: Target,
+            icon: Gamepad2,
             title: "Joki Valorant",
             description:
                 "Tingkatkan rank Valorant Anda dengan bantuan player berpengalaman! Kami menyediakan jasa joki Valorant yang aman dan terpercaya. Dari Iron hingga Radiant, kami siap membantu Anda mencapai rank impian.",
@@ -111,7 +111,7 @@ export default function ServicesSection() {
             ],
         },
         {
-            icon: Sword,
+            icon: Gamepad2,
             title: "Genshin Impact",
             description:
                 "Butuh bantuan untuk menyelesaikan quest, farming material, atau meningkatkan Adventure Rank di Genshin Impact? Tim kami siap membantu Anda dengan layanan joki yang profesional dan aman untuk akun Anda.",
@@ -123,7 +123,7 @@ export default function ServicesSection() {
             ],
         },
         {
-            icon: Smile,
+            icon: Shirt,
             title: "Roblox Custom Clothing",
             description:
                 "Wujudkan ide kreatif Anda menjadi custom clothing yang menakjubkan! Kami menyediakan jasa Design custom clothing untuk Roblox, mulai dari Shirt, T-Shirt hingga pants.",
@@ -138,7 +138,6 @@ export default function ServicesSection() {
                 "/services/custom-jersey/RCC-7.png",
                 "/services/custom-jersey/RCC-8.png",
                 "/services/custom-jersey/RCC-9.png",
-                "/services/custom-jersey/RCC-13.png",
                 "/services/custom-jersey/RCC-10.png",
                 "/services/custom-jersey/RCC-11.png",
                 "/services/custom-jersey/RCC-12.png",
