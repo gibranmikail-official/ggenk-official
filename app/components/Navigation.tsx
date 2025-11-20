@@ -110,7 +110,7 @@ export default function Navigation({ activeSection }: NavigationProps) {
                                     whileTap={{ scale: 0.95 }}
                                 >
                                     {activeSection === item.id && (
-                                        <motion.div
+                                        <motion.div 
                                             layoutId="activeTab"
                                             className="absolute inset-0 bg-orange-500/20 rounded-full"
                                             transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}

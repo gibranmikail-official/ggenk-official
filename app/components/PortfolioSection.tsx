@@ -2,12 +2,14 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, ExternalLink, Grid3X3, SquarePlay } from "lucide-react";
 import Image from "next/image";
 
 export default function PortfolioSection() {
     const [selectedPortfolio, setSelectedPortfolio] = useState<number | null>(null);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [viewMode, setViewMode] = useState<"slideshow" | "grid">("slideshow");
+    const [carouselIndex, setCarouselIndex] = useState(0);
 
     const portfolios = [
         {
@@ -239,6 +241,14 @@ export default function PortfolioSection() {
         }
     };
 
+    const nextCarousel = () => {
+        setCarouselIndex((prev) => (prev + 1) % portfolios.length);
+    };
+
+    const prevCarousel = () => {
+        setCarouselIndex((prev) => (prev - 1 + portfolios.length) % portfolios.length);
+    };
+
     return (
         <section id="portfolio" className="py-20 px-4">
             <div className="max-w-7xl mx-auto">
@@ -247,7 +257,7 @@ export default function PortfolioSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
-                    className="text-center mb-16"
+                    className="text-center mb-8"
                 >
                     <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
                         Work{" "}
@@ -258,64 +268,204 @@ export default function PortfolioSection() {
                     </h2>
                 </motion.div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {portfolios.map((portfolio, index) => (
-                        <motion.div
-                            key={portfolio.id}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: index * 0.1 }}
-                            viewport={{ once: true }}
-                            whileHover={{
-                                scale: 1.05,
-                                y: -10,
-                                transition: { duration: 0.3 },
-                            }}
-                            onClick={() => {
-                                setSelectedPortfolio(index);
-                                setCurrentImageIndex(0);
-                            }}
-                            className="group relative cursor-pointer"
+                {/* View Mode Toggle */}
+                <div className="flex justify-center mb-8">
+                    <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-2 flex">
+                        <button
+                            onClick={() => setViewMode("slideshow")}
+                            className={`flex items-center gap-2 px-6 py-3 rounded-xl transition-all ${
+                                viewMode === "slideshow"
+                                    ? "bg-orange-500 text-white"
+                                    : "text-white/60 hover:text-white"
+                            }`}
                         >
-                            <div className="relative backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl overflow-hidden transition-all duration-500 group-hover:bg-orange-500/20 group-hover:border-orange-500/30">
-                                {/* Thumbnail */}
-                                <div className="aspect-video overflow-hidden">
-                                    <Image
-                                        src={portfolio.thumbnail || "/placeholder.svg"}
-                                        alt={portfolio.title}
-                                        width={400}
-                                        height={300}
-                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                    />
-                                </div>
-
-                                {/* Content */}
-                                <div className="p-6">
-                                    <div className="mb-2">
-                                        <span className="text-orange-400 text-sm font-medium">
-                                            {portfolio.type}
-                                        </span>
-                                    </div>
-
-                                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-orange-300 transition-colors">
-                                        {portfolio.title}
-                                    </h3>
-
-                                    <p className="text-white/80 leading-relaxed mb-4 text-sm">
-                                        {portfolio.description.substring(0, 120)}...
-                                    </p>
-
-                                    <div className="text-orange-400 text-sm font-medium">
-                                        Click to view details
-                                    </div>
-                                </div>
-
-                                {/* Hover Overlay */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                            </div>
-                        </motion.div>
-                    ))}
+                            <SquarePlay className="w-5 h-5" />
+                            Slideshow
+                        </button>
+                        <button
+                            onClick={() => setViewMode("grid")}
+                            className={`flex items-center gap-2 px-6 py-3 rounded-xl transition-all ${
+                                viewMode === "grid"
+                                    ? "bg-orange-500 text-white"
+                                    : "text-white/60 hover:text-white"
+                            }`}
+                        >
+                            <Grid3X3 className="w-5 h-5" />
+                            Grid View
+                        </button>
+                    </div>
                 </div>
+
+                {/* Grid View */}
+                {viewMode === "grid" && (
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {portfolios.map((portfolio, index) => (
+                            <motion.div
+                                key={portfolio.id}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.8, delay: index * 0.1 }}
+                                viewport={{ once: true }}
+                                whileHover={{
+                                    scale: 1.05,
+                                    y: -10,
+                                    transition: { duration: 0.3 },
+                                }}
+                                onClick={() => {
+                                    setSelectedPortfolio(index);
+                                    setCurrentImageIndex(0);
+                                }}
+                                className="group relative cursor-pointer"
+                            >
+                                <div className="relative backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl overflow-hidden transition-all duration-500 group-hover:bg-orange-500/20 group-hover:border-orange-500/30">
+                                    {/* Thumbnail */}
+                                    <div className="aspect-video overflow-hidden">
+                                        <Image
+                                            src={portfolio.thumbnail || "/placeholder.svg"}
+                                            alt={portfolio.title}
+                                            width={400}
+                                            height={300}
+                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                        />
+                                    </div>
+
+                                    {/* Content */}
+                                    <div className="p-6">
+                                        <div className="mb-2">
+                                            <span className="text-orange-400 text-sm font-medium">
+                                                {portfolio.type}
+                                            </span>
+                                        </div>
+
+                                        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-orange-300 transition-colors">
+                                            {portfolio.title}
+                                        </h3>
+
+                                        <p className="text-white/80 leading-relaxed mb-4 text-sm">
+                                            {portfolio.description.substring(0, 120)}...
+                                        </p>
+
+                                        <div className="text-orange-400 text-sm font-medium">
+                                            Click to view details
+                                        </div>
+                                    </div>
+
+                                    {/* Hover Overlay */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                )}
+
+                {/* Slideshow View */}
+                {viewMode === "slideshow" && (
+                    <div className="relative">
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={carouselIndex}
+                                initial={{ opacity: 0, x: 300 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                exit={{ opacity: 0, x: -300 }}
+                                transition={{ duration: 0.5 }}
+                                className="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl overflow-hidden"
+                            >
+                                <div className="grid lg:grid-cols-2 gap-8">
+                                    {/* Image Section */}
+                                    <div className="relative aspect-video lg:aspect-auto">
+                                        <Image
+                                            src={portfolios[carouselIndex].thumbnail || "/placeholder.svg"}
+                                            alt={portfolios[carouselIndex].title}
+                                            width={600}
+                                            height={400}
+                                            className="w-full h-full object-cover"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent lg:bg-gradient-to-r lg:from-black/50 lg:via-black/30 lg:to-transparent" />
+                                    </div>
+
+                                    {/* Content Section */}
+                                    <div className="p-8 flex flex-col justify-center">
+                                        <div className="mb-4">
+                                            <span className="text-orange-400 text-sm font-medium">
+                                                {portfolios[carouselIndex].type}
+                                            </span>
+                                        </div>
+
+                                        <h3 className="text-3xl font-bold text-white mb-4">
+                                            {portfolios[carouselIndex].title}
+                                        </h3>
+
+                                        <p className="text-white/80 leading-relaxed mb-6">
+                                            {portfolios[carouselIndex].description}
+                                        </p>
+
+                                        <div className="mb-6">
+                                            <h4 className="text-white font-semibold mb-3">Features</h4>
+                                            <ul className="text-white/80 space-y-1">
+                                                {portfolios[carouselIndex].features.slice(0, 3).map((feature, index) => (
+                                                    <li key={index} className="flex items-center">
+                                                        <span className="w-2 h-2 bg-orange-500 rounded-full mr-2" />
+                                                        {feature}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+
+                                        <div className="flex flex-wrap gap-4">
+                                            <button
+                                                onClick={() => {
+                                                    setSelectedPortfolio(carouselIndex);
+                                                    setCurrentImageIndex(0);
+                                                }}
+                                                className="bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300"
+                                            >
+                                                View Details
+                                            </button>
+                                            <a
+                                                href={portfolios[carouselIndex].link}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center space-x-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg hover:shadow-orange-500/25 transition-all duration-300"
+                                            >
+                                                <span>View Project</span>
+                                                <ExternalLink className="w-4 h-4" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        </AnimatePresence>
+
+                        {/* Carousel Navigation */}
+                        <button
+                            onClick={prevCarousel}
+                            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors z-10"
+                        >
+                            <ChevronLeft className="w-6 h-6" />
+                        </button>
+                        <button
+                            onClick={nextCarousel}
+                            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors z-10"
+                        >
+                            <ChevronRight className="w-6 h-6" />
+                        </button>
+
+                        {/* Carousel Indicators */}
+                        <div className="flex justify-center mt-6 space-x-2">
+                            {portfolios.map((_, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => setCarouselIndex(index)}
+                                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                                        index === carouselIndex
+                                            ? "bg-orange-500 w-8"
+                                            : "bg-white/30 hover:bg-white/50"
+                                    }`}
+                                />
+                            ))}
+                        </div>
+                    </div>
+                )}
 
                 {/* Portfolio Modal */}
                 <AnimatePresence>

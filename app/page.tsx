@@ -12,6 +12,7 @@ import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 import ParticleBackground from "./components/ParticleBackground";
 import FloatingParticles from "./components/FloatingParticles";
+import PartnersSection from "./components/PartnersSection";
 
 export default function Home() {
     const [activeSection, setActiveSection] = useState("home");
@@ -54,6 +55,7 @@ export default function Home() {
                     <PortfolioSection />
                     <GallerySection />
                     <TestimonialSection />
+                    <PartnersSection />
                     <ContactSection />
                 </main>
 

@@ -1,13 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, Grid3X3, Play, SquarePlay } from "lucide-react";
 import Image from "next/image";
 
 export default function GallerySection() {
     const [selectedGallery, setSelectedGallery] = useState<number | null>(null);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const [viewMode, setViewMode] = useState<"slideshow" | "grid">("slideshow");
 
     const galleries = [
         {
@@ -318,6 +320,24 @@ export default function GallerySection() {
         },
     ];
 
+    // Auto-rotate slideshow
+    useEffect(() => {
+        if (viewMode === "slideshow") {
+            const interval = setInterval(() => {
+                setCurrentSlide((prev) => (prev + 1) % galleries.length);
+            }, 7000);
+            return () => clearInterval(interval);
+        }
+    }, [viewMode, galleries.length]);
+
+    const nextSlide = () => {
+        setCurrentSlide((prev) => (prev + 1) % galleries.length);
+    };
+
+    const prevSlide = () => {
+        setCurrentSlide((prev) => (prev - 1 + galleries.length) % galleries.length);
+    };
+
     const nextImage = () => {
         if (selectedGallery !== null) {
             const gallery = galleries[selectedGallery];
@@ -351,100 +371,273 @@ export default function GallerySection() {
                     <p className="text-xl text-white/80">Momen-momen seru ketika kumpul bareng</p>
                 </motion.div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {galleries.map((gallery, index) => (
-                        <motion.div
-                            key={gallery.id}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: index * 0.1 }}
-                            viewport={{ once: true }}
-                            whileHover={{
-                                scale: 1.05,
-                                y: -10,
-                                transition: { duration: 0.3 },
-                            }}
-                            onClick={() => {
-                                setSelectedGallery(index);
-                                setCurrentImageIndex(0);
-                            }}
-                            className="group relative cursor-pointer"
+                {/* View Mode Toggle */}
+                <div className="flex justify-center mb-8">
+                    <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-2 flex">
+                        <button
+                            onClick={() => setViewMode("slideshow")}
+                            className={`flex items-center gap-2 px-6 py-3 rounded-xl transition-all ${
+                                viewMode === "slideshow"
+                                    ? "bg-orange-500 text-white"
+                                    : "text-white/60 hover:text-white"
+                            }`}
                         >
-                            <div className="relative backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl overflow-hidden transition-all duration-500 group-hover:bg-orange-500/20 group-hover:border-orange-500/30">
-                                {/* Thumbnail */}
-                                <div className="aspect-video overflow-hidden relative">
-                                    <Image
-                                        src={gallery.thumbnail || "/placeholder.svg"}
-                                        alt={gallery.title}
-                                        width={400}
-                                        height={300}
-                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                    />
-
-                                    {/* Image Count Badge */}
-                                    <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm">
-                                        {gallery.images.length} photos
-                                    </div>
-
-                                    {/* Hover Overlay */}
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
-                                        <span className="text-white font-medium">Click to view gallery</span>
-                                    </div>
-                                </div>
-
-                                {/* Content */}
-                                <div className="p-6">
-                                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-orange-300 transition-colors">
-                                        {gallery.title}
-                                    </h3>
-
-                                    <p className="text-white/60 text-sm">{gallery.date}</p>
-                                </div>
-                            </div>
-                        </motion.div>
-                    ))}
+                            <SquarePlay className="w-5 h-5" />
+                            Slideshow
+                        </button>
+                        <button
+                            onClick={() => setViewMode("grid")}
+                            className={`flex items-center gap-2 px-6 py-3 rounded-xl transition-all ${
+                                viewMode === "grid"
+                                    ? "bg-orange-500 text-white"
+                                    : "text-white/60 hover:text-white"
+                            }`}
+                        >
+                            <Grid3X3 className="w-5 h-5" />
+                            Grid View
+                        </button>
+                    </div>
                 </div>
 
-                {/* Gallery Modal */}
+                {/* 3D Slideshow View */}
+                {viewMode === "slideshow" && (
+                    <div className="relative h-[600px] mb-12">
+                        <AnimatePresence mode="wait">
+                            {galleries.map((gallery, index) => (
+                                index === currentSlide && (
+                                    <motion.div
+                                        key={gallery.id}
+                                        initial={{ 
+                                            opacity: 0,
+                                            scale: 0.8,
+                                            x: 300
+                                        }}
+                                        animate={{ 
+                                            opacity: 1,
+                                            scale: 1,
+                                            x: 0,
+                                            transition: {
+                                                type: "spring",
+                                                stiffness: 100,
+                                                damping: 20
+                                            }
+                                        }}
+                                        exit={{ 
+                                            opacity: 0,
+                                            scale: 0.8,
+                                            x: -300
+                                        }}
+                                        className="absolute inset-0 cursor-pointer"
+                                        onClick={() => {
+                                            setSelectedGallery(index);
+                                            setCurrentImageIndex(0);
+                                        }}
+                                    >
+                                        <div className="relative backdrop-blur-md bg-white/10 border border-white/20 rounded-3xl overflow-hidden h-full">
+                                            {/* Main Image with Enhanced Effects */}
+                                            <div className="relative w-full h-full">
+                                                <div className="absolute inset-0 transform hover:scale-105 transition-transform duration-700">
+                                                    <div className="relative w-full h-full overflow-hidden rounded-3xl">
+                                                        <Image
+                                                            src={gallery.thumbnail || "/placeholder.svg"}
+                                                            alt={gallery.title}
+                                                            fill
+                                                            className="object-cover"
+                                                        />
+                                                        {/* Gradient Overlay */}
+                                                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+                                                        
+                                                        {/* Content */}
+                                                        <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                                                            <motion.h3 
+                                                                initial={{ opacity: 0, y: 20 }}
+                                                                animate={{ opacity: 1, y: 0 }}
+                                                                transition={{ delay: 0.3 }}
+                                                                className="text-3xl font-bold mb-2"
+                                                            >
+                                                                {gallery.title}
+                                                            </motion.h3>
+                                                            <motion.p 
+                                                                initial={{ opacity: 0, y: 20 }}
+                                                                animate={{ opacity: 1, y: 0 }}
+                                                                transition={{ delay: 0.4 }}
+                                                                className="text-white/80 mb-4"
+                                                            >
+                                                                {gallery.date}
+                                                            </motion.p>
+                                                            <motion.div 
+                                                                initial={{ opacity: 0, y: 20 }}
+                                                                animate={{ opacity: 1, y: 0 }}
+                                                                transition={{ delay: 0.5 }}
+                                                                className="flex items-center gap-2"
+                                                            >
+                                                                <span className="bg-orange-500/20 border border-orange-500/30 text-orange-300 px-3 py-1 rounded-full text-sm">
+                                                                    {gallery.images.length} photos
+                                                                </span>
+                                                                <span className="text-white/60 text-sm">
+                                                                    Click to view gallery
+                                                                </span>
+                                                            </motion.div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </motion.div>
+                                )
+                            ))}
+                        </AnimatePresence>
+
+                        {/* Navigation Buttons */}
+                        <button
+                            onClick={prevSlide}
+                            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 backdrop-blur-sm text-white p-4 rounded-full transition-all hover:scale-110 z-10"
+                        >
+                            <ChevronLeft className="w-6 h-6" />
+                        </button>
+                        <button
+                            onClick={nextSlide}
+                            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 backdrop-blur-sm text-white p-4 rounded-full transition-all hover:scale-110 z-10"
+                        >
+                            <ChevronRight className="w-6 h-6" />
+                        </button>
+
+                        {/* Slide Indicators */}
+                        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
+                            {galleries.map((_, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => setCurrentSlide(index)}
+                                    className={`w-3 h-3 rounded-full transition-all ${
+                                        index === currentSlide
+                                            ? "bg-orange-500 scale-125"
+                                            : "bg-white/30 hover:bg-white/50"
+                                    }`}
+                                />
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                {/* Grid View */}
+                {viewMode === "grid" && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+                    >
+                        {galleries.map((gallery, index) => (
+                            <motion.div
+                                key={gallery.id}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.8, delay: index * 0.1 }}
+                                whileHover={{
+                                    scale: 1.05,
+                                    y: -10,
+                                    transition: { duration: 0.3 },
+                                }}
+                                onClick={() => {
+                                    setSelectedGallery(index);
+                                    setCurrentImageIndex(0);
+                                }}
+                                className="group relative cursor-pointer"
+                            >
+                                <div className="relative backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl overflow-hidden transition-all duration-500 group-hover:bg-orange-500/20 group-hover:border-orange-500/30">
+                                    {/* Thumbnail */}
+                                    <div className="aspect-video overflow-hidden relative">
+                                        <Image
+                                            src={gallery.thumbnail || "/placeholder.svg"}
+                                            alt={gallery.title}
+                                            width={400}
+                                            height={300}
+                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                        />
+
+                                        {/* Image Count Badge */}
+                                        <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm">
+                                            {gallery.images.length} photos
+                                        </div>
+
+                                        {/* Hover Overlay */}
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                                            <span className="text-white font-medium">Click to view gallery</span>
+                                        </div>
+                                    </div>
+
+                                    {/* Content */}
+                                    <div className="p-6">
+                                        <h3 className="text-xl font-bold text-white mb-2 group-hover:text-orange-300 transition-colors">
+                                            {gallery.title}
+                                        </h3>
+                                        <p className="text-white/60 text-sm">{gallery.date}</p>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </motion.div>
+                )}
+
+                {/* Enhanced Gallery Modal */}
                 <AnimatePresence>
                     {selectedGallery !== null && (
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
-                            className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+                            className="fixed inset-0 bg-black/95 backdrop-blur-lg z-50 flex items-center justify-center p-4"
                             onClick={() => setSelectedGallery(null)}
                         >
                             <motion.div
                                 initial={{ scale: 0.8, opacity: 0 }}
                                 animate={{ scale: 1, opacity: 1 }}
                                 exit={{ scale: 0.8, opacity: 0 }}
+                                transition={{ type: "spring", stiffness: 100, damping: 20 }}
                                 onClick={(e) => e.stopPropagation()}
-                                className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-hidden"
+                                className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/20 rounded-3xl max-w-6xl w-full max-h-[95vh] overflow-hidden shadow-2xl"
                             >
                                 <div className="p-6">
-                                    {/* Header */}
-                                    <div className="flex justify-between items-center mb-6">
+                                    {/* Enhanced Header */}
+                                    <div className="flex justify-between items-center mb-8">
                                         <div>
-                                            <h3 className="text-2xl font-bold text-white">
+                                            <motion.h3 
+                                                initial={{ opacity: 0, x: -20 }}
+                                                animate={{ opacity: 1, x: 0 }}
+                                                className="text-3xl font-bold text-white mb-2"
+                                            >
                                                 {galleries[selectedGallery].title}
-                                            </h3>
-                                            <p className="text-white/60">
+                                            </motion.h3>
+                                            <motion.p 
+                                                initial={{ opacity: 0, x: -20 }}
+                                                animate={{ opacity: 1, x: 0 }}
+                                                transition={{ delay: 0.1 }}
+                                                className="text-white/60 text-lg"
+                                            >
                                                 {galleries[selectedGallery].date} •{" "}
-                                                {galleries[selectedGallery].images.length} photos
-                                            </p>
+                                                <span className="text-orange-400">
+                                                    {galleries[selectedGallery].images.length} photos
+                                                </span>
+                                            </motion.p>
                                         </div>
-                                        <button
+                                        <motion.button
+                                            whileHover={{ scale: 1.1, rotate: 90 }}
+                                            whileTap={{ scale: 0.9 }}
                                             onClick={() => setSelectedGallery(null)}
-                                            className="text-white/60 hover:text-white transition-colors"
+                                            className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white/60 hover:text-white p-3 rounded-xl transition-all border border-white/20"
                                         >
                                             <X className="w-6 h-6" />
-                                        </button>
+                                        </motion.button>
                                     </div>
 
-                                    {/* Main Image */}
-                                    <div className="relative mb-6">
-                                        <div className="aspect-video bg-white/5 rounded-lg overflow-hidden">
+                                    {/* Enhanced Main Image */}
+                                    <div className="relative mb-8">
+                                        <motion.div
+                                            key={currentImageIndex}
+                                            initial={{ opacity: 0, scale: 0.9 }}
+                                            animate={{ opacity: 1, scale: 1 }}
+                                            transition={{ duration: 0.5 }}
+                                            className="aspect-video bg-gradient-to-br from-white/5 to-white/10 rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
+                                        >
                                             <Image
                                                 src={
                                                     galleries[selectedGallery].images[currentImageIndex] ||
@@ -453,59 +646,78 @@ export default function GallerySection() {
                                                 alt={`${galleries[selectedGallery].title} - Photo ${
                                                     currentImageIndex + 1
                                                 }`}
-                                                width={800}
-                                                height={600}
+                                                width={1200}
+                                                height={800}
                                                 className="w-full h-full object-contain"
                                             />
-                                        </div>
+                                        </motion.div>
 
-                                        {/* Navigation Buttons */}
+                                        {/* Enhanced Navigation Buttons */}
                                         {galleries[selectedGallery].images.length > 1 && (
                                             <>
-                                                <button
+                                                <motion.button
+                                                    whileHover={{ scale: 1.1, x: -5 }}
+                                                    whileTap={{ scale: 0.9 }}
                                                     onClick={prevImage}
-                                                    className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors"
+                                                    className="absolute left-6 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 backdrop-blur-sm text-white p-4 rounded-2xl transition-all border border-white/20 shadow-lg"
                                                 >
                                                     <ChevronLeft className="w-6 h-6" />
-                                                </button>
-                                                <button
+                                                </motion.button>
+                                                <motion.button
+                                                    whileHover={{ scale: 1.1, x: 5 }}
+                                                    whileTap={{ scale: 0.9 }}
                                                     onClick={nextImage}
-                                                    className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors"
+                                                    className="absolute right-6 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 backdrop-blur-sm text-white p-4 rounded-2xl transition-all border border-white/20 shadow-lg"
                                                 >
                                                     <ChevronRight className="w-6 h-6" />
-                                                </button>
+                                                </motion.button>
                                             </>
                                         )}
 
-                                        {/* Image Counter */}
-                                        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/50 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm">
-                                            {currentImageIndex + 1} /{" "}
+                                        {/* Enhanced Image Counter */}
+                                        <motion.div 
+                                            initial={{ opacity: 0, y: 20 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            transition={{ delay: 0.3 }}
+                                            className="absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-black/50 backdrop-blur-lg text-white px-6 py-3 rounded-2xl text-lg border border-white/20 shadow-lg"
+                                        >
+                                            <span className="text-orange-400 font-semibold">
+                                                {currentImageIndex + 1}
+                                            </span>{" "}
+                                            /{" "}
                                             {galleries[selectedGallery].images.length}
-                                        </div>
+                                        </motion.div>
                                     </div>
 
-                                    {/* Thumbnail Strip */}
-                                    <div className="flex space-x-2 overflow-x-auto pb-2">
+                                    {/* Enhanced Thumbnail Strip */}
+                                    <motion.div 
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: 0.4 }}
+                                        className="flex space-x-4 overflow-x-auto pb-4"
+                                    >
                                         {galleries[selectedGallery].images.map((image, index) => (
-                                            <button
+                                            <motion.button
                                                 key={index}
+                                                whileHover={{ scale: 1.1, y: -5 }}
+                                                whileTap={{ scale: 0.95 }}
                                                 onClick={() => setCurrentImageIndex(index)}
-                                                className={`flex-shrink-0 w-20 h-16 rounded-lg overflow-hidden border-2 transition-colors ${
+                                                className={`flex-shrink-0 w-24 h-20 rounded-xl overflow-hidden border-2 transition-all shadow-lg ${
                                                     currentImageIndex === index
-                                                        ? "border-orange-500"
+                                                        ? "border-orange-500 scale-110 shadow-orange-500/25"
                                                         : "border-white/20 hover:border-white/40"
                                                 }`}
                                             >
                                                 <Image
                                                     src={image || "/placeholder.svg"}
                                                     alt={`Thumbnail ${index + 1}`}
-                                                    width={80}
-                                                    height={64}
+                                                    width={96}
+                                                    height={80}
                                                     className="w-full h-full object-cover"
                                                 />
-                                            </button>
+                                            </motion.button>
                                         ))}
-                                    </div>
+                                    </motion.div>
                                 </div>
                             </motion.div>
                         </motion.div>

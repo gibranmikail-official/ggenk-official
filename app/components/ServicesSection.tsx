@@ -162,7 +162,7 @@ export default function ServicesSection() {
                         SERVICES
                     </h2>
                     <p className="text-xl text-white/80">
-                        GGENK juga menyediakan beberapa jasa yang mungkin kalian butuhkan
+                        GGENK menyediakan beberapa jasa yang mungkin kalian butuhkan
                     </p>
                 </motion.div>
 
@@ -335,4 +335,4 @@ export default function ServicesSection() {
             </div>
         </section>
     );
-}
+}   
