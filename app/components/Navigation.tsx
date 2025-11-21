@@ -47,31 +47,31 @@ export default function Navigation({ activeSection }: NavigationProps) {
                 initial={{ y: -100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className={`fixed top-4 left-4 right-4 z-50 transition-all duration-300 ${
+                className={`fixed top-4 left-16 right-16 z-50 transition-all duration-300 ${
                     isScrolled
                         ? "backdrop-blur-md bg-black/40 border border-white/20 shadow-2xl"
                         : "backdrop-blur-lg bg-black/30 border border-white/15 shadow-xl"
-                } rounded-full mx-auto max-w-6xl`}
+                } rounded-full mx-auto`}
             >
-                <div className="px-6 py-3">
+                <div className="pl-10 pr-6 py-3">
                     <div className="flex items-center justify-between">
                         {/* Logo */}
                         <motion.div
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="flex items-center space-x-3 cursor-pointer"
+                            className="flex items-center space-x-1.5 cursor-pointer"
                             onClick={() => scrollToSection("home")}
                         >
                             <div className="relative">
                                 <Image
                                     src="/ggenk-logo.png"
                                     alt="GGENK Logo"
-                                    width={36}
-                                    height={36}
-                                    className="rounded-none"
+                                    width={28}
+                                    height={28}
+                                    className="rounded-none -mt-1"
                                 />
                             </div>
-                            <span className="text-white font-bold text-xl bg-gradient-to-r from-orange-400 to-purple-400 bg-clip-text text-transparent">
+                            <span className="text-white font-bold text-lg bg-gradient-to-r from-orange-400 to-purple-400 bg-clip-text text-transparent">
                                 GGENK
                             </span>
                         </motion.div>

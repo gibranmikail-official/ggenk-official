@@ -30,6 +30,20 @@ export default function ServicesSection() {
             description: "Jasa pembuatan dan pengembangan Discord server profesional dengan bot integration dan custom design.",
             gallery: [
                 "/services/server-dev/sd.png",
+                "/services/server-dev/sd-1.png",
+                "/services/server-dev/sd-2.png",
+                "/services/server-dev/sd-3.png",
+                "/services/server-dev/sd-4.png",
+                "/services/server-dev/sd-5.png",
+                "/services/server-dev/sd-6.png",
+                "/services/server-dev/sd-7.png",
+                "/services/server-dev/sd-8.png",
+                "/services/server-dev/sd-9.png",
+                "/services/server-dev/sd-10.png",
+                "/services/server-dev/sd-11.png",
+                "/services/server-dev/sd-12.png",
+                "/services/server-dev/sd-13.png",
+                "/services/server-dev/sd-14.png",
                 "/services/server-dev/sd-15.png",
                 "/services/server-dev/sd-16.png",
             ],
@@ -70,6 +84,7 @@ export default function ServicesSection() {
             gallery: [
                 "/services/custom-sticker/cs-1.png",
                 "/services/custom-sticker/cs.png",
+                "/services/custom-sticker/cs-2.png",
             ],
         },
         {
@@ -79,6 +94,16 @@ export default function ServicesSection() {
             gallery: [
                 "/services/joki-valorant/jv-1.png",
                 "/services/joki-valorant/jv-2.png",
+                "/portfolio/02-joki-valorant/jv-3.png",
+                "/portfolio/02-joki-valorant/jv-4.png",
+                "/portfolio/02-joki-valorant/jv-5.png",
+                "/portfolio/02-joki-valorant/jv-6.png",
+                "/portfolio/02-joki-valorant/jv-7.png",
+                "/portfolio/02-joki-valorant/jv-8.png",
+                "/portfolio/02-joki-valorant/jv-9.png",
+                "/portfolio/02-joki-valorant/jv-10.png",
+                "/portfolio/02-joki-valorant/jv-11.png",
+                "/portfolio/02-joki-valorant/jv-12.png",
             ],
         },
         {
@@ -88,6 +113,8 @@ export default function ServicesSection() {
             gallery: [
                 "/services/joki-genshin/jgi-1.png",
                 "/services/joki-genshin/jgi-2.png",
+                "/services/joki-genshin/jgi-3.png",
+                "/services/joki-genshin/jgi-4.png",
             ],
         },
         {
@@ -97,6 +124,15 @@ export default function ServicesSection() {
             gallery: [
                 "/services/custom-jersey/RCC.png",
                 "/services/custom-jersey/RCC-1.png",
+                "/services/custom-jersey/RCC-2.png",
+                "/services/custom-jersey/RCC-3.png",
+                "/services/custom-jersey/RCC-4.png",
+                "/services/custom-jersey/RCC-5.png",
+                "/services/custom-jersey/RCC-6.png",
+                "/services/custom-jersey/RCC-7.png",
+                "/services/custom-jersey/RCC-8.png",
+                "/services/custom-jersey/RCC-9.png",
+                "/services/custom-jersey/RCC-10.png",
             ],
         },
     ];
