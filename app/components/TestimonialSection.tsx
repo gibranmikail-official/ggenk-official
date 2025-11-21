@@ -10,108 +10,120 @@ export default function TestimonialSection() {
         {
             id: 1,
             name: "Yudha Rizky",
-            avatar: "/testimoni/pp.png",
+            title: "Beyond 9 to 5",
             service: "Discord Server Development",
             rating: 5,
+            avatar: "/testimoni/pp.png",
             testimonial:
                 "GGENK berhasil bikin Discord server yang sangat keren untuk komunitas freelance kami! Sistemnya rapi, bot-nya responsive, dan member jadi lebih aktif. Highly recommended! Proses pengerjaan cepat dan komunikasi sangat baik.",
         },
         {
             id: 2,
             name: "Sari Indah",
-            avatar: "/testimoni/pp.png",
+            title: "Creative Design Hub",
             service: "Custom Emoji/Sticker",
             rating: 5,
+            avatar: "/testimoni/pp.png",
             testimonial:
                 "Emoji custom yang dibuat GGENK sangat lucu dan unik! Sekarang chat di Discord jadi lebih seru dan ekspresif. Kualitas gambarnya juga HD banget. Desainnya sesuai dengan karakter brand kami.",
         },
         {
             id: 3,
             name: "Budi Santoso",
-            avatar: "/testimoni/pp.png",
+            title: "Valorant Indonesia",
             service: "Jasa Joki Valorant",
             rating: 5,
+            avatar: "/testimoni/pp.png",
             testimonial:
                 "Dari Silver langsung naik ke Diamond dalam seminggu! Prosesnya aman, komunikasi lancar, dan hasilnya memuaskan. Thanks GGENK! Player yang ditugaskan sangat profesional dan memahami game dengan baik.",
         },
         {
             id: 4,
             name: "Maya Putri",
-            avatar: "/testimoni/pp.png",
+            title: "Content Creator",
             service: "Video Editing",
             rating: 4,
+            avatar: "/testimoni/pp.png",
             testimonial:
                 "Video editing untuk konten YouTube channel aku jadi keren banget! Transisinya smooth, color grading-nya pas, dan sesuai dengan brief yang aku kasih. Proses revisi juga cepat dan memuaskan.",
         },
         {
             id: 5,
             name: "Doni Pratama",
-            avatar: "/testimoni/pp.png",
+            title: "Genshin Impact Community",
             service: "Jasa Joki Genshin Impact",
             rating: 5,
+            avatar: "/testimoni/pp.png",
             testimonial:
                 "AR 60 dalam waktu singkat! GGENK juga bantuin farming material dan weapon. Akun aman, progress cepat, pelayanan memuaskan! Sangat recommended untuk yang sibuk tapi ingin progress cepat.",
         },
         {
             id: 6,
             name: "Lisa Anggraini",
-            avatar: "/testimoni/pp.png",
+            title: "Brand Owner",
             service: "Motion Design",
             rating: 5,
+            avatar: "/testimoni/pp.png",
             testimonial:
                 "Logo animation dan motion graphics untuk brand aku dibuat dengan sangat profesional. Hasil akhirnya exceed expectation! Pasti bakal order lagi. Tim kreatifnya sangat memahami kebutuhan client.",
         },
         {
             id: 7,
             name: "Rizky Maulana",
-            avatar: "/testimoni/pp.png",
+            title: "Gaming Enthusiast",
             service: "Jasa Joki Valorant",
             rating: 5,
+            avatar: "/testimoni/pp.png",
             testimonial:
                 "Rankku stuck di Gold berbulan-bulan, tapi setelah pakai jasa ini langsung naik ke Diamond! Cepat, aman, dan komunikatif banget. Bener-bener worth it! Laporan progress diberikan secara rutin.",
         },
         {
             id: 8,
             name: "Fahri Ramadhan",
-            avatar: "/testimoni/pp.png",
+            title: "Genshin Impact Player",
             service: "Jasa Joki Genshin Impact",
             rating: 5,
+            avatar: "/testimoni/pp.png",
             testimonial:
                 "Mau farming artifact tapi nggak punya waktu. Untung ada jasa ini, akun aman, pelayanan ramah, dan progressnya cepet banget. Recommended banget! Hasil artifactnya juga bagus-bagus.",
         },
         {
             id: 9,
             name: "Dewi Anggraini",
-            avatar: "/testimoni/pp.png",
+            title: "YouTuber",
             service: "Video Editing",
             rating: 5,
+            avatar: "/testimoni/pp.png",
             testimonial:
                 "Editing-nya bener-bener keren, hasilnya sesuai ekspektasi! Transisi halus, efeknya pas, dan audio mixing-nya juga clean. Channel YouTube-ku jadi makin pro! Engagement meningkat signifikan.",
         },
         {
             id: 10,
             name: "Alvin Kurniawan",
-            avatar: "/testimoni/pp.png",
+            title: "Marketing Manager",
             service: "Motion Design",
             rating: 5,
+            avatar: "/testimoni/pp.png",
             testimonial:
                 "Order animasi buat brand campaign, hasilnya clean dan profesional banget. Brief langsung dipahami, dan revisi cepat. Udah pasti bakal repeat order! Kualitas premium dengan harga terjangkau.",
         },
         {
             id: 11,
             name: "Putri Aulia",
-            avatar: "/testimoni/pp.png",
+            title: "Community Manager",
             service: "Custom Sticker/Emoji",
             rating: 5,
+            avatar: "/testimoni/pp.png",
             testimonial:
                 "Stiker-nya lucu-lucu dan ekspresif banget! Jadi makin seru chatting pakai stiker buatan sendiri. Fast response juga. Makasih banyak! Desainnya original dan tidak ada duplikat.",
         },
         {
             id: 12,
             name: "Dimas Aditya",
-            avatar: "/testimoni/pp.png",
+            title: "Personal Brand",
             service: "Custom Sticker/Emoji",
             rating: 5,
+            avatar: "/testimoni/pp.png",
             testimonial:
                 "Logo buat brand personal aku dibikin modern dan unik. Sekalian minta versi sticker-nya juga, dan hasilnya keren parah! Desainnya bener-bener ngangkat image brand-ku. Very satisfied!",
         },
@@ -243,7 +255,7 @@ export default function TestimonialSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
-                    className="text-center mb-16"
+                    className="text-center mb-1 mt-5"
                 >
                     <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
                         What Our{" "}
@@ -257,169 +269,183 @@ export default function TestimonialSection() {
                     </p>
                 </motion.div>
 
-                {/* Carousel Container */}
+                {/* Main Container dengan Tombol di Samping */}
                 <div 
-                    className="relative"
+                    className="relative flex items-center gap-6"
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                 >
-                    {/* Navigation Buttons */}
-                    <button
+                    {/* Previous Button - Left Side */}
+                    <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                         onClick={prevSlide}
-                        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 bg-orange-500 hover:bg-orange-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 hidden md:flex items-center justify-center border-2 border-orange-300/50"
+                        className="hidden md:flex bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-4 rounded-2xl transition-all border border-white/20 flex-shrink-0"
                     >
                         <ChevronLeft className="w-6 h-6" />
-                    </button>
+                    </motion.button>
 
-                    <button
-                        onClick={nextSlide}
-                        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 bg-orange-500 hover:bg-orange-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 hidden md:flex items-center justify-center border-2 border-orange-300/50"
-                    >
-                        <ChevronRight className="w-6 h-6" />
-                    </button>
+                    {/* Carousel Container */}
+                    <div className="flex-1 overflow-hidden">
+                        <div ref={carouselRef} className="overflow-hidden relative">
+                            <AnimatePresence mode="wait" custom={direction} initial={false}>
+                                <motion.div
+                                    key={currentIndex}
+                                    custom={direction}
+                                    variants={slideVariants}
+                                    initial="enter"
+                                    animate="center"
+                                    exit="exit"
+                                    transition={{
+                                        x: { type: "spring", stiffness: 300, damping: 30 },
+                                        opacity: { duration: 0.3 },
+                                        scale: { duration: 0.3 }
+                                    }}
+                                    drag="x"
+                                    dragConstraints={{ left: 0, right: 0 }}
+                                    dragElastic={1}
+                                    onDragEnd={(e, { offset, velocity }) => {
+                                        const swipe = swipePower(offset.x, velocity.x);
 
-                    {/* Carousel */}
-                    <div ref={carouselRef} className="overflow-hidden relative">
-                        <AnimatePresence mode="wait" custom={direction} initial={false}>
-                            <motion.div
-                                key={currentIndex}
-                                custom={direction}
-                                variants={slideVariants}
-                                initial="enter"
-                                animate="center"
-                                exit="exit"
-                                transition={{
-                                    x: { type: "spring", stiffness: 300, damping: 30 },
-                                    opacity: { duration: 0.3 },
-                                    scale: { duration: 0.3 }
-                                }}
-                                drag="x"
-                                dragConstraints={{ left: 0, right: 0 }}
-                                dragElastic={1}
-                                onDragEnd={(e, { offset, velocity }) => {
-                                    const swipe = swipePower(offset.x, velocity.x);
+                                        if (swipe < -swipeConfidenceThreshold) {
+                                            nextSlide();
+                                        } else if (swipe > swipeConfidenceThreshold) {
+                                            prevSlide();
+                                        }
+                                    }}
+                                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-7"
+                                >
+                                    {visibleTestimonials.map((testimonial, index) => (
+                                        <motion.div
+                                            key={`${testimonial.id}-${currentIndex}-${index}`}
+                                            initial={{ opacity: 0, y: 20 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            transition={{ duration: 0.6, delay: index * 0.1 }}
+                                            whileHover={{
+                                                scale: 1.02,
+                                                y: -5,
+                                                transition: { duration: 0.3 },
+                                            }}
+                                            className="group relative"
+                                        >
+                                            <div className="relative backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-8 h-full transition-all duration-500 group-hover:bg-orange-500/20 group-hover:border-orange-500/30 min-h-[420px] flex flex-col">
+                                                {/* Glow Effect */}
+                                                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-orange-500/0 to-purple-500/0 group-hover:from-orange-500/10 group-hover:to-purple-500/10 transition-all duration-500" />
 
-                                    if (swipe < -swipeConfidenceThreshold) {
-                                        nextSlide();
-                                    } else if (swipe > swipeConfidenceThreshold) {
-                                        prevSlide();
-                                    }
-                                }}
-                                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-7"
-                            >
-                                {visibleTestimonials.map((testimonial, index) => (
-                                    <motion.div
-                                        key={`${testimonial.id}-${currentIndex}-${index}`}
-                                        initial={{ opacity: 0, y: 20 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ duration: 0.6, delay: index * 0.1 }}
-                                        whileHover={{
-                                            scale: 1.02,
-                                            y: -5,
-                                            transition: { duration: 0.3 },
-                                        }}
-                                        className="group relative"
-                                    >
-                                        <div className="relative backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-8 h-full transition-all duration-500 group-hover:bg-orange-500/20 group-hover:border-orange-500/30 min-h-[380px] flex flex-col">
-                                            {/* Glow Effect */}
-                                            <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-orange-500/0 to-purple-500/0 group-hover:from-orange-500/10 group-hover:to-purple-500/10 transition-all duration-500" />
+                                                {/* Content - Gambar di Tengah */}
+                                                <div className="relative z-10 flex flex-col flex-1 items-center text-center">
+                                                    {/* Avatar di Tengah */}
+                                                    <div className="relative mb-4">
+                                                        <div className="relative">
+                                                            <Image
+                                                                src={testimonial.avatar || "/placeholder.svg"}
+                                                                alt={testimonial.name}
+                                                                width={70}
+                                                                height={70}
+                                                                className="rounded-full border-2 border-white/20 group-hover:border-orange-500/50 transition-colors duration-300 mx-auto"
+                                                            />
+                                                            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                                        </div>
+                                                    </div>
 
-                                            {/* Content - Gambar di Tengah */}
-                                            <div className="relative z-10 flex flex-col flex-1 items-center text-center">
-                                                {/* Avatar di Tengah */}
-                                                <div className="relative mb-6">
-                                                    <div className="relative">
-                                                        <Image
-                                                            src={testimonial.avatar || "/placeholder.svg"}
-                                                            alt={testimonial.name}
-                                                            width={80}
-                                                            height={80}
-                                                            className="rounded-full border-2 border-white/20 group-hover:border-orange-500/50 transition-colors duration-300 mx-auto"
-                                                        />
-                                                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                                    {/* Nama, Gelar/Komunitas, dan Service */}
+                                                    <div className="mb-4 w-full">
+                                                        <h4 className="text-white font-semibold text-lg group-hover:text-orange-300 transition-colors duration-300 mb-1">
+                                                            {testimonial.name}
+                                                        </h4>
+                                                        <p className="text-orange-400 text-sm font-medium mb-1">
+                                                            {testimonial.title}
+                                                        </p>
+                                                        <p className="text-white/60 text-xs">
+                                                            {testimonial.service}
+                                                        </p>
+                                                    </div>
+
+                                                    {/* Rating di Tengah */}
+                                                    <div className="flex items-center justify-center space-x-1 mb-4">
+                                                        {renderStars(testimonial.rating)}
+                                                        <span className="text-white/60 text-xs ml-2">
+                                                            ({testimonial.rating}.0)
+                                                        </span>
+                                                    </div>
+
+                                                    {/* Testimonial Text */}
+                                                    <blockquote className="text-white/80 leading-relaxed group-hover:text-white transition-colors duration-300 flex-1 text-sm line-clamp-5">
+                                                        "{testimonial.testimonial}"
+                                                    </blockquote>
+                                                </div>
+
+                                                {/* Hover Border Animation */}
+                                                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-orange-500 via-purple-500 to-orange-500 p-[2px]">
+                                                        <div className="w-full h-full rounded-2xl bg-transparent" />
                                                     </div>
                                                 </div>
 
-                                                {/* Nama dan Service di Bawah Gambar */}
-                                                <div className="mb-6">
-                                                    <h4 className="text-white font-semibold text-lg group-hover:text-orange-300 transition-colors duration-300 mb-2">
-                                                        {testimonial.name}
-                                                    </h4>
-                                                    <p className="text-white/60 text-sm">
-                                                        {testimonial.service}
-                                                    </p>
-                                                </div>
-
-                                                {/* Rating di Tengah */}
-                                                <div className="flex items-center justify-center space-x-1 mb-6">
-                                                    {renderStars(testimonial.rating)}
-                                                    <span className="text-white/60 text-sm ml-2">
-                                                        ({testimonial.rating}.0)
-                                                    </span>
-                                                </div>
-
-                                                {/* Testimonial Text */}
-                                                <blockquote className="text-white/80 leading-relaxed group-hover:text-white transition-colors duration-300 flex-1 text-base">
-                                                    "{testimonial.testimonial}"
-                                                </blockquote>
+                                                {/* Corner Accents */}
+                                                <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-orange-500/50 rounded-tl-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                                <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-purple-500/50 rounded-tr-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                                <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-purple-500/50 rounded-bl-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                                <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-orange-500/50 rounded-br-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                                             </div>
+                                        </motion.div>
+                                    ))}
+                                </motion.div>
+                            </AnimatePresence>
+                        </div>
 
-                                            {/* Hover Border Animation */}
-                                            <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-orange-500 via-purple-500 to-orange-500 p-[2px]">
-                                                    <div className="w-full h-full rounded-2xl bg-transparent" />
-                                                </div>
-                                            </div>
+                        {/* Mobile Navigation Buttons */}
+                        <div className="flex md:hidden justify-center space-x-4 mt-8">
+                            <motion.button
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                onClick={prevSlide}
+                                className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-4 rounded-2xl transition-all border border-white/20"
+                            >
+                                <ChevronLeft className="w-5 h-5" />
+                            </motion.button>
+                            <motion.button
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                onClick={nextSlide}
+                                className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-4 rounded-2xl transition-all border border-white/20"
+                            >
+                                <ChevronRight className="w-5 h-5" />
+                            </motion.button>
+                        </div>
 
-                                            {/* Corner Accents */}
-                                            <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-orange-500/50 rounded-tl-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                            <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-purple-500/50 rounded-tr-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                            <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-purple-500/50 rounded-bl-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                            <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-orange-500/50 rounded-br-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                        </div>
-                                    </motion.div>
-                                ))}
-                            </motion.div>
-                        </AnimatePresence>
+                        {/* Dots Indicator */}
+                        <div className="flex justify-center space-x-3 mt-8">
+                            {testimonials.map((_, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => goToSlide(index)}
+                                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                                        index === currentIndex 
+                                        ? "bg-orange-500 scale-125 shadow-lg shadow-orange-500/50" 
+                                        : "bg-white/30 hover:bg-white/50 hover:scale-110"
+                                    }`}
+                                />
+                            ))}
+                        </div>
+
+                        {/* Current Position Indicator */}
+                        <div className="text-center mt-4">
+                            <span className="text-white/60 text-sm">
+                                {currentIndex + 1} / {testimonials.length}
+                            </span>
+                        </div>
                     </div>
 
-                    {/* Mobile Navigation Buttons */}
-                    <div className="flex md:hidden justify-center space-x-4 mt-8">
-                        <button
-                            onClick={prevSlide}
-                            className="bg-orange-500 hover:bg-orange-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 border-2 border-orange-300/50"
-                        >
-                            <ChevronLeft className="w-5 h-5" />
-                        </button>
-                        <button
-                            onClick={nextSlide}
-                            className="bg-orange-500 hover:bg-orange-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 border-2 border-orange-300/50"
-                        >
-                            <ChevronRight className="w-5 h-5" />
-                        </button>
-                    </div>
-
-                    {/* Dots Indicator - Menunjukkan posisi saat ini dari total testimonial */}
-                    <div className="flex justify-center space-x-3 mt-8">
-                        {testimonials.map((_, index) => (
-                            <button
-                                key={index}
-                                onClick={() => goToSlide(index)}
-                                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                                    index === currentIndex 
-                                    ? "bg-orange-500 scale-125 shadow-lg shadow-orange-500/50" 
-                                    : "bg-white/30 hover:bg-white/50 hover:scale-110"
-                                }`}
-                            />
-                        ))}
-                    </div>
-
-                    {/* Current Position Indicator */}
-                    <div className="text-center mt-4">
-                        <span className="text-white/60 text-sm">
-                            {currentIndex + 1} / {testimonials.length}
-                        </span>
-                    </div>
+                    {/* Next Button - Right Side */}
+                    <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={nextSlide}
+                        className="hidden md:flex bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-4 rounded-2xl transition-all border border-white/20 flex-shrink-0"
+                    >
+                        <ChevronRight className="w-6 h-6" />
+                    </motion.button>
                 </div>
             </div>
         </section>

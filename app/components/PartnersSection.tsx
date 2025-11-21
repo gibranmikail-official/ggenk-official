@@ -22,6 +22,10 @@ export default function PartnersSection() {
             logo: "/partners/IS.png",
         },
         {
+            name: "Sky Intelligence Agency",
+            logo: "/partners/SIA.png",
+        },
+        {
             name: "Nimbus Collective",
             logo: "/partners/NC.png",
         },
@@ -29,11 +33,15 @@ export default function PartnersSection() {
             name: "Interbond",
             logo: "/partners/INTB.png",
         },
+        {
+            name: "3DEADESIGN",
+            logo: "/partners/3DD.png",
+        },
     ]
 
     return (
         <section id="partners" className="py-20">
-            <div className=" text-center">
+            <div className="text-center">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -41,20 +49,26 @@ export default function PartnersSection() {
                     viewport={{ once: true }}
                 >
                     <div className="max-w-4xl flex flex-col items-center mx-auto px-4">
-                        <h2 className="text-4xl lg:text-5xl font-bold text-white mb-8">
+                        <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4 mt-5">
                             GGENK{" "}
                             <span className="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">
                                 Partnerships
                             </span>
                         </h2>
 
-                        <p className="text-xl text-white/80 mb-12 leading-relaxed">
+                        <p className="text-xl text-white/80 mb-10 leading-relaxed">
                             Kerja sama dengan berbagai partner untuk menghadirkan lebih banyak kesempatan, pengalaman seru, dan ruang berkembang bagi semua.
                         </p>
                     </div>
-                    <Marquee items={partnersData} direction="right" speed={45} />
+                    
+                    {/* Marquee dengan direction "right" untuk slide kanan ke kiri */}
+                    <Marquee 
+                        items={partnersData} 
+                        direction="right" 
+                        speed={15} 
+                    />
                 </motion.div>
             </div>
         </section>
     )
-}   
+}

@@ -6,7 +6,12 @@ import { Instagram, Youtube } from "lucide-react";
 
 export default function HeroSection() {
     const socialButtons = [
-        { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/ggenk.official" },
+        { 
+            icon: Instagram, 
+            label: "Instagram", 
+            href: "https://www.instagram.com/ggenk.official",
+            color: "hover:bg-pink-500/20 hover:border-pink-400/50"
+        },
         {
             icon: () => (
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="white">
@@ -15,8 +20,14 @@ export default function HeroSection() {
             ),
             label: "Tiktok",
             href: "https://www.tiktok.com/@ggenk.official",
+            color: "hover:bg-black/20 hover:border-white/60"
         },
-        { icon: Youtube, label: "YouTube", href: "https://www.youtube.com/@GGENK.OFFICIAL" },
+        { 
+            icon: Youtube, 
+            label: "YouTube", 
+            href: "https://www.youtube.com/@GGENK.OFFICIAL",
+            color: "hover:bg-red-500/20 hover:border-red-400/50"
+        },
         {
             icon: () => (
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="white">
@@ -25,20 +36,8 @@ export default function HeroSection() {
             ),
             label: "Discord",
             href: "https://discord.gg/yVpN7nnTWk",
+            color: "hover:bg-indigo-500/20 hover:border-indigo-400/50"
         },
-        // {
-        //     icon: () => (
-        //         <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24">
-        //             <path fill="white" d="M13.5 16a1.5 1.5 0 1 1-3 0a1.5 1.5 0 0 1 3 0" />
-        //             <path
-        //                 fill="white"
-        //                 d="m14.347.66l3.18 4.456l2.097-.715L21.538 10h.962v12h-21V10h.51v-.01l.648.006zM9.397 10h10.028l-1.037-3.033l-1.522.487zM7.839 8.417L15.55 5.79l-1.604-2.25zM5.5 12h-2v2a2 2 0 0 0 2-2m10 4a3.5 3.5 0 1 0-7 0a3.5 3.5 0 0 0 7 0m5 4v-2a2 2 0 0 0-2 2zm-2-8a2 2 0 0 0 2 2v-2zm-15 8h2a2 2 0 0 0-2-2z"
-        //             />
-        //         </svg>
-        //     ),
-        //     label: "Top up Game",
-        //     href: "https://ggenkofficial.my.id",
-        // },
         {
             icon: () => (
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="white">
@@ -47,6 +46,7 @@ export default function HeroSection() {
             ),
             label: "Support GGENK",
             href: "https://saweria.co/ggenkofficial",
+            color: "hover:bg-green-500/20 hover:border-green-400/50"
         },
     ];
 
@@ -90,12 +90,12 @@ export default function HeroSection() {
                         dunia virtual, tapi juga sering kumpul di dunia nyata untuk mempererat kebersamaan.
                     </motion.p>
 
-                    {/* Social Media Buttons */}
+                    {/* Social Media Buttons - Simplified */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.6, duration: 0.8 }}
-                        className="flex flex-wrap justify-center lg:justify-start gap-4 mb-8"
+                        className="flex justify-center lg:justify-start gap-3 mb-8"
                     >
                         {socialButtons.map((social, index) => (
                             <motion.a
@@ -103,12 +103,12 @@ export default function HeroSection() {
                                 href={social.href}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                whileHover={{ scale: 1.05, y: -2 }}
+                                whileHover={{ scale: 1.1, y: -3 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="group backdrop-blur-md bg-white/10 border border-white/20 rounded-full px-4 py-3 flex items-center space-x-2 hover:bg-orange-500/20 transition-all duration-300"
+                                className={`group backdrop-blur-md bg-white/10 border border-white/20 rounded-full flex items-center w-12 h-12 p-3 transition-all duration-300 ${social.color}`}
+                                title={social.label}
                             >
-                                <social.icon className="w-5 h-5 text-white group-hover:text-orange-400 transition-colors" />
-                                <span className="text-white text-sm font-medium">{social.label}</span>
+                                <social.icon className="w-6 h-6 text-white  group-hover:scale-110 transition-transform" />
                             </motion.a>
                         ))}
                     </motion.div>

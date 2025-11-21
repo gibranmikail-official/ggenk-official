@@ -35,9 +35,9 @@ export default function AboutSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
-                    className="text-center mb-16"
+                    className="text-center mb-10"
                 >
-                    <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
+                    <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4 mt-5">
                         Apa yang akan kamu dapatkan di{" "}
                         <span className="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">
                             GGENK?

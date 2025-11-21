@@ -249,6 +249,17 @@ export default function PortfolioSection() {
         setCarouselIndex((prev) => (prev - 1 + portfolios.length) % portfolios.length);
     };
 
+    // Function to truncate description
+    const truncateDescription = (text: string, maxLength: number = 120) => {
+        if (text.length <= maxLength) return text;
+        return text.substring(0, maxLength) + "...";
+    };
+
+    // Check if link is valid (not "#" or empty)
+    const isValidLink = (link: string) => {
+        return link && link !== "#" && link !== "";
+    };
+
     return (
         <section id="portfolio" className="py-20 px-4">
             <div className="max-w-7xl mx-auto">
@@ -257,9 +268,9 @@ export default function PortfolioSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
-                    className="text-center mb-8"
+                    className="text-center mb-5"
                 >
-                    <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
+                    <h2 className="text-4xl lg:text-5xl font-bold text-white mb-5 mt-5">
                         Work{" "}
                         <span className="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">
                             GGENK
@@ -317,9 +328,9 @@ export default function PortfolioSection() {
                                 }}
                                 className="group relative cursor-pointer"
                             >
-                                <div className="relative backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl overflow-hidden transition-all duration-500 group-hover:bg-orange-500/20 group-hover:border-orange-500/30">
+                                <div className="relative backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl overflow-hidden transition-all duration-500 group-hover:bg-orange-500/20 group-hover:border-orange-500/30 h-full flex flex-col">
                                     {/* Thumbnail */}
-                                    <div className="aspect-video overflow-hidden">
+                                    <div className="aspect-video overflow-hidden flex-shrink-0">
                                         <Image
                                             src={portfolio.thumbnail || "/placeholder.svg"}
                                             alt={portfolio.title}
@@ -330,22 +341,22 @@ export default function PortfolioSection() {
                                     </div>
 
                                     {/* Content */}
-                                    <div className="p-6">
+                                    <div className="p-6 flex flex-col flex-grow">
                                         <div className="mb-2">
                                             <span className="text-orange-400 text-sm font-medium">
                                                 {portfolio.type}
                                             </span>
                                         </div>
 
-                                        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-orange-300 transition-colors">
+                                        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-orange-300 transition-colors line-clamp-2">
                                             {portfolio.title}
                                         </h3>
 
-                                        <p className="text-white/80 leading-relaxed mb-4 text-sm">
-                                            {portfolio.description.substring(0, 120)}...
+                                        <p className="text-white/80 leading-relaxed mb-4 text-sm flex-grow line-clamp-3">
+                                            {truncateDescription(portfolio.description, 120)}
                                         </p>
 
-                                        <div className="text-orange-400 text-sm font-medium">
+                                        <div className="text-orange-400 text-sm font-medium mt-auto">
                                             Click to view details
                                         </div>
                                     </div>
@@ -358,97 +369,110 @@ export default function PortfolioSection() {
                     </div>
                 )}
 
-                {/* Slideshow View */}
+                {/* Slideshow View - Compact Size */}
                 {viewMode === "slideshow" && (
                     <div className="relative">
-                        <AnimatePresence mode="wait">
-                            <motion.div
-                                key={carouselIndex}
-                                initial={{ opacity: 0, x: 300 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                exit={{ opacity: 0, x: -300 }}
-                                transition={{ duration: 0.5 }}
-                                className="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl overflow-hidden"
+                        <div className="flex items-center gap-4">
+                            {/* Previous Button - Outside */}
+                            <motion.button
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                onClick={prevCarousel}
+                                className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-3 rounded-2xl transition-all border border-white/20 flex-shrink-0"
                             >
-                                <div className="grid lg:grid-cols-2 gap-8">
-                                    {/* Image Section */}
-                                    <div className="relative aspect-video lg:aspect-auto">
-                                        <Image
-                                            src={portfolios[carouselIndex].thumbnail || "/placeholder.svg"}
-                                            alt={portfolios[carouselIndex].title}
-                                            width={600}
-                                            height={400}
-                                            className="w-full h-full object-cover"
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent lg:bg-gradient-to-r lg:from-black/50 lg:via-black/30 lg:to-transparent" />
-                                    </div>
+                                <ChevronLeft className="w-6 h-6" />
+                            </motion.button>
 
-                                    {/* Content Section */}
-                                    <div className="p-8 flex flex-col justify-center">
-                                        <div className="mb-4">
-                                            <span className="text-orange-400 text-sm font-medium">
-                                                {portfolios[carouselIndex].type}
-                                            </span>
+                            {/* Slideshow Content */}
+                            <div className="flex-1">
+                                <AnimatePresence mode="wait">
+                                    <motion.div
+                                        key={carouselIndex}
+                                        initial={{ opacity: 0, x: 300 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        exit={{ opacity: 0, x: -300 }}
+                                        transition={{ duration: 0.5 }}
+                                        className="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl overflow-hidden"
+                                    >
+                                        <div className="grid lg:grid-cols-2 gap-6 min-h-[400px]">
+                                            {/* Image Section - Smaller */}
+                                            <div className="relative aspect-video lg:aspect-auto lg:h-full">
+                                                <Image
+                                                    src={portfolios[carouselIndex].thumbnail || "/placeholder.svg"}
+                                                    alt={portfolios[carouselIndex].title}
+                                                    width={500}
+                                                    height={300}
+                                                    className="w-full h-full object-cover"
+                                                />
+                                                <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent lg:bg-gradient-to-r lg:from-black/50 lg:via-black/30 lg:to-transparent" />
+                                            </div>
+
+                                            {/* Content Section - Compact */}
+                                            <div className="p-6 flex flex-col justify-center">
+                                                <div className="mb-3">
+                                                    <span className="text-orange-400 text-sm font-medium">
+                                                        {portfolios[carouselIndex].type}
+                                                    </span>
+                                                </div>
+
+                                                <h3 className="text-2xl font-bold text-white mb-3 line-clamp-2">
+                                                    {portfolios[carouselIndex].title}
+                                                </h3>
+
+                                                <p className="text-white/80 leading-relaxed mb-4 text-sm line-clamp-3">
+                                                    {truncateDescription(portfolios[carouselIndex].description, 150)}
+                                                </p>
+
+                                                <div className="mb-4">
+                                                    <h4 className="text-white font-semibold mb-2 text-sm">Features</h4>
+                                                    <ul className="text-white/80 space-y-1 text-sm">
+                                                        {portfolios[carouselIndex].features.slice(0, 3).map((feature, index) => (
+                                                            <li key={index} className="flex items-center">
+                                                                <span className="w-1.5 h-1.5 bg-orange-500 rounded-full mr-2" />
+                                                                <span className="line-clamp-1">{feature}</span>
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                </div>
+
+                                                <div className="flex flex-wrap gap-3">
+                                                    <button
+                                                        onClick={() => {
+                                                            setSelectedPortfolio(carouselIndex);
+                                                            setCurrentImageIndex(0);
+                                                        }}
+                                                        className="bg-white/10 hover:bg-white/20 text-white px-5 py-2.5 rounded-full font-semibold transition-all duration-300 text-sm"
+                                                    >
+                                                        View Details
+                                                    </button>
+                                                    {isValidLink(portfolios[carouselIndex].link) && (
+                                                        <a
+                                                            href={portfolios[carouselIndex].link}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="inline-flex items-center space-x-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-5 py-2.5 rounded-full font-semibold hover:shadow-lg hover:shadow-orange-500/25 transition-all duration-300 text-sm"
+                                                        >
+                                                            <span>View Project</span>
+                                                            <ExternalLink className="w-4 h-4" />
+                                                        </a>
+                                                    )}
+                                                </div>
+                                            </div>
                                         </div>
+                                    </motion.div>
+                                </AnimatePresence>
+                            </div>
 
-                                        <h3 className="text-3xl font-bold text-white mb-4">
-                                            {portfolios[carouselIndex].title}
-                                        </h3>
-
-                                        <p className="text-white/80 leading-relaxed mb-6">
-                                            {portfolios[carouselIndex].description}
-                                        </p>
-
-                                        <div className="mb-6">
-                                            <h4 className="text-white font-semibold mb-3">Features</h4>
-                                            <ul className="text-white/80 space-y-1">
-                                                {portfolios[carouselIndex].features.slice(0, 3).map((feature, index) => (
-                                                    <li key={index} className="flex items-center">
-                                                        <span className="w-2 h-2 bg-orange-500 rounded-full mr-2" />
-                                                        {feature}
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
-
-                                        <div className="flex flex-wrap gap-4">
-                                            <button
-                                                onClick={() => {
-                                                    setSelectedPortfolio(carouselIndex);
-                                                    setCurrentImageIndex(0);
-                                                }}
-                                                className="bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300"
-                                            >
-                                                View Details
-                                            </button>
-                                            <a
-                                                href={portfolios[carouselIndex].link}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="inline-flex items-center space-x-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg hover:shadow-orange-500/25 transition-all duration-300"
-                                            >
-                                                <span>View Project</span>
-                                                <ExternalLink className="w-4 h-4" />
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </motion.div>
-                        </AnimatePresence>
-
-                        {/* Carousel Navigation */}
-                        <button
-                            onClick={prevCarousel}
-                            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors z-10"
-                        >
-                            <ChevronLeft className="w-6 h-6" />
-                        </button>
-                        <button
-                            onClick={nextCarousel}
-                            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors z-10"
-                        >
-                            <ChevronRight className="w-6 h-6" />
-                        </button>
+                            {/* Next Button - Outside */}
+                            <motion.button
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                onClick={nextCarousel}
+                                className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-3 rounded-2xl transition-all border border-white/20 flex-shrink-0"
+                            >
+                                <ChevronRight className="w-6 h-6" />
+                            </motion.button>
+                        </div>
 
                         {/* Carousel Indicators */}
                         <div className="flex justify-center mt-6 space-x-2">
@@ -467,7 +491,7 @@ export default function PortfolioSection() {
                     </div>
                 )}
 
-                {/* Portfolio Modal */}
+                {/* Optimized Portfolio Modal */}
                 <AnimatePresence>
                     {selectedPortfolio !== null && (
                         <motion.div
@@ -497,15 +521,15 @@ export default function PortfolioSection() {
                                         </div>
                                         <button
                                             onClick={() => setSelectedPortfolio(null)}
-                                            className="text-white/60 hover:text-white transition-colors"
+                                            className="text-white/60 hover:text-white transition-colors bg-white/10 p-2 rounded-full"
                                         >
-                                            <X className="w-6 h-6" />
+                                            <X className="w-5 h-5" />
                                         </button>
                                     </div>
 
-                                    {/* Image Gallery */}
+                                    {/* Enhanced Image Gallery */}
                                     <div className="relative mb-6">
-                                        <div className="aspect-video bg-white/5 rounded-lg overflow-hidden">
+                                        <div className="aspect-video bg-white/5 rounded-xl overflow-hidden relative">
                                             <Image
                                                 src={
                                                     portfolios[selectedPortfolio].images[currentImageIndex] ||
@@ -518,112 +542,132 @@ export default function PortfolioSection() {
                                                 height={600}
                                                 className="w-full h-full object-cover"
                                             />
+                                            
+                                            {/* Image Counter */}
+                                            <div className="absolute top-4 right-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
+                                                {currentImageIndex + 1} / {portfolios[selectedPortfolio].images.length}
+                                            </div>
                                         </div>
 
-                                        {/* Navigation Buttons */}
+                                        {/* Enhanced Navigation Buttons */}
                                         {portfolios[selectedPortfolio].images.length > 1 && (
                                             <>
-                                                <button
+                                                <motion.button
+                                                    whileHover={{ scale: 1.1 }}
+                                                    whileTap={{ scale: 0.9 }}
                                                     onClick={prevImage}
-                                                    className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+                                                    className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-3 rounded-2xl transition-all border border-white/20"
                                                 >
-                                                    <ChevronLeft className="w-6 h-6" />
-                                                </button>
-                                                <button
+                                                    <ChevronLeft className="w-5 h-5" />
+                                                </motion.button>
+                                                <motion.button
+                                                    whileHover={{ scale: 1.1 }}
+                                                    whileTap={{ scale: 0.9 }}
                                                     onClick={nextImage}
-                                                    className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+                                                    className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-3 rounded-2xl transition-all border border-white/20"
                                                 >
-                                                    <ChevronRight className="w-6 h-6" />
-                                                </button>
+                                                    <ChevronRight className="w-5 h-5" />
+                                                </motion.button>
                                             </>
                                         )}
 
-                                        {/* Image Thumbnails */}
-                                        <div className="flex justify-center mt-4 space-x-2">
-                                            {portfolios[selectedPortfolio].images.map((_, index) => (
-                                                <button
+                                        {/* Enhanced Image Thumbnails */}
+                                        <div className="flex overflow-x-auto py-4 space-x-2 scrollbar-hide">
+                                            {portfolios[selectedPortfolio].images.map((image, index) => (
+                                                <motion.button
                                                     key={index}
+                                                    whileHover={{ scale: 1.05 }}
+                                                    whileTap={{ scale: 0.95 }}
                                                     onClick={() => setCurrentImageIndex(index)}
-                                                    className={`w-16 h-12 rounded-lg overflow-hidden border-2 transition-colors ${
+                                                    className={`flex-shrink-0 w-20 h-14 rounded-lg overflow-hidden border-2 transition-all ${
                                                         currentImageIndex === index
-                                                            ? "border-orange-500"
+                                                            ? "border-orange-500 scale-105"
                                                             : "border-white/20 hover:border-white/40"
                                                     }`}
                                                 >
                                                     <Image
-                                                        src={
-                                                            portfolios[selectedPortfolio].images[index] ||
-                                                            "/placeholder.svg"
-                                                        }
+                                                        src={image || "/placeholder.svg"}
                                                         alt={`Thumbnail ${index + 1}`}
-                                                        width={64}
-                                                        height={48}
+                                                        width={80}
+                                                        height={56}
                                                         className="w-full h-full object-cover"
                                                     />
-                                                </button>
+                                                </motion.button>
                                             ))}
                                         </div>
                                     </div>
 
-                                    {/* Details */}
+                                    {/* Enhanced Details Section */}
                                     <div className="grid md:grid-cols-2 gap-6">
-                                        <div>
-                                            <h4 className="text-white font-semibold mb-3">Description</h4>
-                                            <p className="text-white/80 leading-relaxed mb-4">
-                                                {portfolios[selectedPortfolio].description}
-                                            </p>
+                                        <div className="space-y-4">
+                                            <div>
+                                                <h4 className="text-white font-semibold mb-2">Description</h4>
+                                                <p className="text-white/80 leading-relaxed text-sm">
+                                                    {portfolios[selectedPortfolio].description}
+                                                </p>
+                                            </div>
 
-                                            <h4 className="text-white font-semibold mb-3">Features</h4>
-                                            <ul className="text-white/80 space-y-1">
-                                                {portfolios[selectedPortfolio].features.map(
-                                                    (feature, index) => (
-                                                        <li key={index} className="flex items-center">
-                                                            <span className="w-2 h-2 bg-orange-500 rounded-full mr-2" />
-                                                            {feature}
-                                                        </li>
-                                                    )
-                                                )}
-                                            </ul>
+                                            <div>
+                                                <h4 className="text-white font-semibold mb-2">Features</h4>
+                                                <ul className="text-white/80 space-y-2">
+                                                    {portfolios[selectedPortfolio].features.map(
+                                                        (feature, index) => (
+                                                            <li key={index} className="flex items-start">
+                                                                <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-1.5 flex-shrink-0" />
+                                                                <span className="text-sm">{feature}</span>
+                                                            </li>
+                                                        )
+                                                    )}
+                                                </ul>
+                                            </div>
                                         </div>
 
-                                        <div>
-                                            <h4 className="text-white font-semibold mb-3">Technology</h4>
-                                            <div className="flex flex-wrap gap-2 mb-4">
-                                                {portfolios[selectedPortfolio].technology.map(
-                                                    (tech, index) => (
-                                                        <span
-                                                            key={index}
-                                                            className="bg-orange-500/20 text-orange-300 px-3 py-1 rounded-full text-sm"
-                                                        >
-                                                            {tech}
-                                                        </span>
-                                                    )
-                                                )}
+                                        <div className="space-y-4">
+                                            <div>
+                                                <h4 className="text-white font-semibold mb-2">Technology</h4>
+                                                <div className="flex flex-wrap gap-2">
+                                                    {portfolios[selectedPortfolio].technology.map(
+                                                        (tech, index) => (
+                                                            <span
+                                                                key={index}
+                                                                className="bg-orange-500/20 text-orange-300 px-3 py-1.5 rounded-full text-sm border border-orange-500/30"
+                                                            >
+                                                                {tech}
+                                                            </span>
+                                                        )
+                                                    )}
+                                                </div>
                                             </div>
 
-                                            <h4 className="text-white font-semibold mb-3">Integration</h4>
-                                            <div className="flex flex-wrap gap-2 mb-6">
-                                                {portfolios[selectedPortfolio].integration.map(
-                                                    (integration, index) => (
-                                                        <span
-                                                            key={index}
-                                                            className="bg-purple-500/20 text-purple-300 px-3 py-1 rounded-full text-sm"
-                                                        >
-                                                            {integration}
-                                                        </span>
-                                                    )
-                                                )}
+                                            <div>
+                                                <h4 className="text-white font-semibold mb-2">Integration</h4>
+                                                <div className="flex flex-wrap gap-2">
+                                                    {portfolios[selectedPortfolio].integration.map(
+                                                        (integration, index) => (
+                                                            <span
+                                                                key={index}
+                                                                className="bg-purple-500/20 text-purple-300 px-3 py-1.5 rounded-full text-sm border border-purple-500/30"
+                                                            >
+                                                                {integration}
+                                                            </span>
+                                                        )
+                                                    )}
+                                                </div>
                                             </div>
 
-                                            <a
-                                                href={portfolios[selectedPortfolio].link}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="inline-flex items-center space-x-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg hover:shadow-orange-500/25 transition-all duration-300"
-                                            >
-                                                <span>View Project</span>
-                                                <ExternalLink className="w-4 h-4" />
-                                            </a>
+                                            {isValidLink(portfolios[selectedPortfolio].link) && (
+                                                <div className="pt-4">
+                                                    <a
+                                                        href={portfolios[selectedPortfolio].link}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="inline-flex items-center space-x-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg hover:shadow-orange-500/25 transition-all duration-300 w-full justify-center"
+                                                    >
+                                                        <span>View Live Project</span>
+                                                        <ExternalLink className="w-4 h-4" />
+                                                    </a>
+                                                </div>
+                                            )}
                                         </div>
                                     </div>
                                 </div>
