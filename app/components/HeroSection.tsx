@@ -71,7 +71,7 @@ export default function HeroSection() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2, duration: 0.8 }}
-                        className="text-5xl lg:text-7xl font-bold text-white mb-6"
+                        className="text-5xl lg:text-7xl font-bold text-white mb-6 mt-5"
                     >
                         WELCOME TO{" "}
                         <span className="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">

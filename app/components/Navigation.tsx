@@ -11,7 +11,6 @@ interface NavigationProps {
 
 export default function Navigation({ activeSection }: NavigationProps) {
     const [isScrolled, setIsScrolled] = useState(false);
-    const [scrollProgress, setScrollProgress] = useState(0);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     const navItems = [
@@ -27,11 +26,7 @@ export default function Navigation({ activeSection }: NavigationProps) {
     useEffect(() => {
         const handleScroll = () => {
             const scrollTop = window.scrollY;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrollPercent = (scrollTop / docHeight) * 100;
-
             setIsScrolled(scrollTop > 50);
-            setScrollProgress(scrollPercent);
         };
 
         window.addEventListener("scroll", handleScroll);
@@ -49,50 +44,36 @@ export default function Navigation({ activeSection }: NavigationProps) {
     return (
         <>
             <motion.nav
-                initial={{ y: 0 }}
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+                initial={{ y: -100, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className={`fixed top-4 left-4 right-4 z-50 transition-all duration-300 ${
                     isScrolled
-                        ? "backdrop-blur-md bg-black/30 border-b border-white/10 shadow-2xl"
-                        : "bg-transparent"
-                }`}
+                        ? "backdrop-blur-md bg-black/40 border border-white/20 shadow-2xl"
+                        : "backdrop-blur-lg bg-black/30 border border-white/15 shadow-xl"
+                } rounded-full mx-auto max-w-6xl`}
             >
-                {/* Progress Bar */}
-                <div className="absolute bottom-0 left-0 w-full h-1 bg-white/10">
-                    <motion.div
-                        className="h-full bg-gradient-to-r from-orange-500 via-orange-400 to-purple-500"
-                        style={{ width: `${scrollProgress}%` }}
-                        initial={{ width: 0 }}
-                        animate={{ width: `${scrollProgress}%` }}
-                        transition={{ duration: 0.1, ease: "easeOut" }}
-                    />
-
-                    {/* Glow effect */}
-                    <motion.div
-                        className="absolute top-0 right-0 h-full w-20 bg-gradient-to-l from-orange-400/50 to-transparent blur-sm"
-                        style={{
-                            transform: `translateX(${scrollProgress > 5 ? 0 : 100}%)`,
-                            opacity: scrollProgress > 5 ? 1 : 0,
-                        }}
-                        transition={{ duration: 0.3 }}
-                    />
-                </div>
-
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex items-center justify-between h-16 lg:h-20">
+                <div className="px-6 py-3">
+                    <div className="flex items-center justify-between">
                         {/* Logo */}
                         <motion.div
                             whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
                             className="flex items-center space-x-3 cursor-pointer"
                             onClick={() => scrollToSection("home")}
                         >
-                            <Image
-                                src="/ggenk-logo.png"
-                                alt="GGENK Logo"
-                                width={40}
-                                height={40}
-                                className="rounded-lg"
-                            />
-                            <span className="text-white font-bold text-xl lg:text-2xl">GGENK</span>
+                            <div className="relative">
+                                <Image
+                                    src="/ggenk-logo.png"
+                                    alt="GGENK Logo"
+                                    width={36}
+                                    height={36}
+                                    className="rounded-none"
+                                />
+                            </div>
+                            <span className="text-white font-bold text-xl bg-gradient-to-r from-orange-400 to-purple-400 bg-clip-text text-transparent">
+                                GGENK
+                            </span>
                         </motion.div>
 
                         {/* Desktop Navigation */}
@@ -101,34 +82,43 @@ export default function Navigation({ activeSection }: NavigationProps) {
                                 <motion.button
                                     key={item.id}
                                     onClick={() => scrollToSection(item.id)}
-                                    className={`relative px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                                    className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all ${
                                         activeSection === item.id
-                                            ? "text-orange-400"
-                                            : "text-white/80 hover:text-white"
+                                            ? "text-white shadow-lg"
+                                            : "text-white/70 hover:text-white hover:bg-white/5"
                                     }`}
-                                    whileHover={{ scale: 1.05 }}
+                                    whileHover={{ scale: 1.05, y: -1 }}
                                     whileTap={{ scale: 0.95 }}
                                 >
                                     {activeSection === item.id && (
                                         <motion.div 
                                             layoutId="activeTab"
-                                            className="absolute inset-0 bg-orange-500/20 rounded-full"
+                                            className="absolute inset-0 bg-orange-400/30 rounded-full border border-orange-400/50"
                                             transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                                         />
                                     )}
-                                    <span className="relative z-10">{item.label}</span>
+                                    <span className="relative z-10 flex items-center">
+                                        {item.label}
+                                        {activeSection === item.id && (
+                                            <motion.div
+                                                initial={{ scale: 0 }}
+                                                animate={{ scale: 1 }}
+                                                className="ml-1 w-1 h-1 bg-orange-400 rounded-full"
+                                            />
+                                        )}
+                                    </span>
                                 </motion.button>
                             ))}
                         </div>
 
                         {/* Mobile Menu Button */}
                         <motion.button
-                            whileHover={{ scale: 1.05 }}
+                            whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.1)" }}
                             whileTap={{ scale: 0.95 }}
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                            className="md:hidden text-white p-2 rounded-lg hover:bg-white/10 transition-colors"
+                            className="md:hidden text-white p-2 rounded-full border border-white/20 bg-white/5 transition-all"
                         >
-                            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                            {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
                         </motion.button>
                     </div>
                 </div>
@@ -143,28 +133,19 @@ export default function Navigation({ activeSection }: NavigationProps) {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
-                            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden"
+                            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden"
                             onClick={() => setIsMobileMenuOpen(false)}
                         />
 
                         {/* Mobile Menu */}
                         <motion.div
-                            initial={{ x: "100%" }}
-                            animate={{ x: 0 }}
-                            exit={{ x: "100%" }}
+                            initial={{ x: "100%", opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            exit={{ x: "100%", opacity: 0 }}
                             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                            className="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-black/90 backdrop-blur-md border-l border-white/10 z-50 md:hidden"
+                            className="fixed top-4 right-4 w-80 max-w-[calc(100vw-2rem)] h-[calc(100vh-2rem)] bg-black/80 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl z-50 md:hidden overflow-hidden"
                         >
                             <div className="flex flex-col h-full">
-                                {/* Mobile Progress Bar */}
-                                <div className="w-full h-1 bg-white/10">
-                                    <motion.div
-                                        className="h-full bg-gradient-to-r from-orange-500 to-purple-500"
-                                        style={{ width: `${scrollProgress}%` }}
-                                        transition={{ duration: 0.1 }}
-                                    />
-                                </div>
-
                                 {/* Mobile Menu Header */}
                                 <div className="flex items-center justify-between p-6 border-b border-white/10">
                                     <div className="flex items-center space-x-3">
@@ -173,20 +154,24 @@ export default function Navigation({ activeSection }: NavigationProps) {
                                             alt="GGENK Logo"
                                             width={32}
                                             height={32}
-                                            className="rounded-lg"
+                                            className="rounded-full"
                                         />
-                                        <span className="text-white font-bold text-lg">GGENK</span>
+                                        <span className="text-white font-bold text-lg bg-gradient-to-r from-orange-400 to-purple-400 bg-clip-text text-transparent">
+                                            GGENK
+                                        </span>
                                     </div>
-                                    <button
+                                    <motion.button
+                                        whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.1)" }}
+                                        whileTap={{ scale: 0.95 }}
                                         onClick={() => setIsMobileMenuOpen(false)}
-                                        className="text-white/60 hover:text-white p-2 rounded-lg hover:bg-white/10 transition-colors"
+                                        className="text-white/60 hover:text-white p-2 rounded-full border border-white/20 transition-all"
                                     >
                                         <X className="w-5 h-5" />
-                                    </button>
+                                    </motion.button>
                                 </div>
 
                                 {/* Mobile Menu Items */}
-                                <div className="flex-1 py-6">
+                                <div className="flex-1 py-6 space-y-2">
                                     {navItems.map((item, index) => (
                                         <motion.button
                                             key={item.id}
@@ -194,26 +179,29 @@ export default function Navigation({ activeSection }: NavigationProps) {
                                             animate={{ opacity: 1, x: 0 }}
                                             transition={{ delay: index * 0.1 }}
                                             onClick={() => scrollToSection(item.id)}
-                                            className={`w-full text-left px-6 py-4 text-lg font-medium transition-colors border-l-4 ${
+                                            className={`w-full text-left px-6 py-4 text-lg font-medium transition-all mx-2 rounded-xl ${
                                                 activeSection === item.id
-                                                    ? "text-orange-400 bg-orange-500/10 border-orange-500"
-                                                    : "text-white/80 hover:text-white hover:bg-white/5 border-transparent"
+                                                    ? "text-white bg-gradient-to-r from-orange-500/20 to-purple-500/20 border border-orange-400/30 shadow-lg"
+                                                    : "text-white/70 hover:text-white hover:bg-white/5 border border-transparent"
                                             }`}
                                         >
-                                            {item.label}
+                                            <div className="flex items-center justify-between">
+                                                <span>{item.label}</span>
+                                                {activeSection === item.id && (
+                                                    <motion.div
+                                                        initial={{ scale: 0 }}
+                                                        animate={{ scale: 1 }}
+                                                        className="w-2 h-2 bg-orange-400 rounded-full"
+                                                    />
+                                                )}
+                                            </div>
                                         </motion.button>
                                     ))}
                                 </div>
 
                                 {/* Mobile Menu Footer */}
-                                <div className="p-6 border-t border-white/10">
-                                    <div className="text-center mb-2">
-                                        <span className="text-white/60 text-sm">Scroll Progress: </span>
-                                        <span className="text-orange-400 font-semibold">
-                                            {Math.round(scrollProgress)}%
-                                        </span>
-                                    </div>
-                                    <p className="text-white/60 text-sm text-center">
+                                <div className="p-6 border-t border-white/10 bg-white/5">
+                                    <p className="text-white/40 text-xs text-center">
                                         © 2025 GGENK Community
                                     </p>
                                 </div>
