@@ -19,23 +19,23 @@ export default function TestimonialSection() {
         },
         {
             id: 2,
-            name: "Sari Indah",
-            title: "Creative Design Hub",
-            service: "Custom Emoji/Sticker",
+            name: "Yummy Tails",
+            title: "Quackers",
+            service: "Discord Server Development",
             rating: 5,
             avatar: "/testimoni/pp.png",
             testimonial:
-                "Emoji custom yang dibuat GGENK sangat lucu dan unik! Sekarang chat di Discord jadi lebih seru dan ekspresif. Kualitas gambarnya juga HD banget. Desainnya sesuai dengan karakter brand kami.",
+                "Sat Set No Debat (Paling Cepat dan Best!). Gila, hasilnya literally sat set sat set! Anti-ribet, gak pake mikir keras. Plus point-nya? Effort-ku nol, tapi hasilnya mantul abis. Padahal cuma ngirim - ngirim video TikTok seamless aja langsung jadi, mantulityyyyy!",
         },
         {
             id: 3,
-            name: "Budi Santoso",
-            title: "Valorant Indonesia",
-            service: "Jasa Joki Valorant",
+            name: "Rhyz",
+            title: "Nimbus Bobax",
+            service: "Discord Server Development",
             rating: 5,
             avatar: "/testimoni/pp.png",
             testimonial:
-                "Dari Silver langsung naik ke Diamond dalam seminggu! Prosesnya aman, komunikasi lancar, dan hasilnya memuaskan. Thanks GGENK! Player yang ditugaskan sangat profesional dan memahami game dengan baik.",
+                "Terimakasih bang, discordnya jadi tertata rapih dan termanage dengan baik. Easy look and easy to navigate untuk community. 100% recommended",
         },
         {
             id: 4,
@@ -148,40 +148,45 @@ export default function TestimonialSection() {
         };
 
         updateCardsPerView();
-        window.addEventListener('resize', updateCardsPerView);
-        return () => window.removeEventListener('resize', updateCardsPerView);
+        window.addEventListener("resize", updateCardsPerView);
+        return () => window.removeEventListener("resize", updateCardsPerView);
     }, []);
 
-    // Auto play carousel - bergerak satu-satu
+    // Auto play carousel - bergerak berdasarkan cardsPerView
     useEffect(() => {
         if (!isAutoPlaying) return;
 
         const interval = setInterval(() => {
             setDirection(1);
-            setCurrentIndex((prevIndex) => 
-                prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
-            );
+            setCurrentIndex((prevIndex) => {
+                const nextIndex = prevIndex + cardsPerView;
+                // Jika sudah mencapai akhir, kembali ke awal
+                if (nextIndex >= testimonials.length) {
+                    return 0;
+                }
+                return nextIndex;
+            });
         }, 4000); // Ganti slide setiap 4 detik
 
         return () => clearInterval(interval);
-    }, [currentIndex, isAutoPlaying, testimonials.length]);
+    }, [currentIndex, isAutoPlaying, testimonials.length, cardsPerView]);
 
     const slideVariants = {
         enter: (direction: number) => ({
             x: direction > 0 ? 300 : -300,
             opacity: 0,
-            scale: 0.9
+            scale: 0.9,
         }),
         center: {
             x: 0,
             opacity: 1,
-            scale: 1
+            scale: 1,
         },
         exit: (direction: number) => ({
             x: direction > 0 ? -300 : 300,
             opacity: 0,
-            scale: 0.9
-        })
+            scale: 0.9,
+        }),
     };
 
     const swipeConfidenceThreshold = 10000;
@@ -191,9 +196,14 @@ export default function TestimonialSection() {
 
     const nextSlide = () => {
         setDirection(1);
-        setCurrentIndex((prevIndex) => 
-            prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
-        );
+        setCurrentIndex((prevIndex) => {
+            const nextIndex = prevIndex + cardsPerView;
+            // Jika sudah mencapai akhir, kembali ke awal
+            if (nextIndex >= testimonials.length) {
+                return 0;
+            }
+            return nextIndex;
+        });
         // Reset auto play timer ketika manual navigation
         setIsAutoPlaying(false);
         setTimeout(() => setIsAutoPlaying(true), 8000);
@@ -201,17 +211,30 @@ export default function TestimonialSection() {
 
     const prevSlide = () => {
         setDirection(-1);
-        setCurrentIndex((prevIndex) => 
-            prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
-        );
+        setCurrentIndex((prevIndex) => {
+            const prevIndexNew = prevIndex - cardsPerView;
+            // Jika sudah di awal, pindah ke akhir
+            if (prevIndexNew < 0) {
+                // Cari indeks terakhir yang valid
+                let lastValidIndex = testimonials.length - cardsPerView;
+                // Pastikan tidak negatif
+                while (lastValidIndex < 0 && lastValidIndex + cardsPerView < testimonials.length) {
+                    lastValidIndex += cardsPerView;
+                }
+                return Math.max(0, lastValidIndex);
+            }
+            return prevIndexNew;
+        });
         // Reset auto play timer ketika manual navigation
         setIsAutoPlaying(false);
         setTimeout(() => setIsAutoPlaying(true), 8000);
     };
 
     const goToSlide = (index: number) => {
-        setDirection(index > currentIndex ? 1 : -1);
-        setCurrentIndex(index);
+        // Untuk dots, kita akan menuju ke indeks yang merupakan kelipatan dari cardsPerView
+        const targetIndex = Math.floor(index / cardsPerView) * cardsPerView;
+        setDirection(targetIndex > currentIndex ? 1 : -1);
+        setCurrentIndex(targetIndex);
         // Reset auto play timer ketika manual navigation
         setIsAutoPlaying(false);
         setTimeout(() => setIsAutoPlaying(true), 8000);
@@ -247,6 +270,10 @@ export default function TestimonialSection() {
 
     const visibleTestimonials = getVisibleTestimonials();
 
+    // Hitung jumlah halaman untuk dots
+    const totalPages = Math.ceil(testimonials.length / cardsPerView);
+    const currentPage = Math.floor(currentIndex / cardsPerView);
+
     return (
         <section id="testimonial" className="py-20 px-4 relative">
             <div className="max-w-7xl mx-auto">
@@ -270,7 +297,7 @@ export default function TestimonialSection() {
                 </motion.div>
 
                 {/* Main Container dengan Tombol di Samping */}
-                <div 
+                <div
                     className="relative flex items-center gap-6"
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
@@ -299,7 +326,7 @@ export default function TestimonialSection() {
                                     transition={{
                                         x: { type: "spring", stiffness: 300, damping: 30 },
                                         opacity: { duration: 0.3 },
-                                        scale: { duration: 0.3 }
+                                        scale: { duration: 0.3 },
                                     }}
                                     drag="x"
                                     dragConstraints={{ left: 0, right: 0 }}
@@ -414,16 +441,16 @@ export default function TestimonialSection() {
                             </motion.button>
                         </div>
 
-                        {/* Dots Indicator */}
+                        {/* Dots Indicator - Sekarang berdasarkan halaman */}
                         <div className="flex justify-center space-x-3 mt-8">
-                            {testimonials.map((_, index) => (
+                            {Array.from({ length: totalPages }).map((_, index) => (
                                 <button
                                     key={index}
-                                    onClick={() => goToSlide(index)}
+                                    onClick={() => goToSlide(index * cardsPerView)}
                                     className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                                        index === currentIndex 
-                                        ? "bg-orange-500 scale-125 shadow-lg shadow-orange-500/50" 
-                                        : "bg-white/30 hover:bg-white/50 hover:scale-110"
+                                        index === currentPage
+                                            ? "bg-orange-500 scale-125 shadow-lg shadow-orange-500/50"
+                                            : "bg-white/30 hover:bg-white/50 hover:scale-110"
                                     }`}
                                 />
                             ))}
@@ -432,7 +459,8 @@ export default function TestimonialSection() {
                         {/* Current Position Indicator */}
                         <div className="text-center mt-4">
                             <span className="text-white/60 text-sm">
-                                {currentIndex + 1} / {testimonials.length}
+                                Halaman {currentPage + 1} dari {totalPages} • Menampilkan{" "}
+                                {visibleTestimonials.length} testimoni
                             </span>
                         </div>
                     </div>

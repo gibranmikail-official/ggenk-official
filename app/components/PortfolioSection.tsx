@@ -14,28 +14,33 @@ export default function PortfolioSection() {
     const portfolios = [
         {
             id: 1,
-            title: "Valorant Rank Boost",
-            type: "Boosting Service",
-            thumbnail: "/portfolio/02-joki-valorant/jv-1.png",
+            title: "Nimbus Bobax",
+            type: "Discord Server Development",
+            thumbnail: "/portfolio/09-NimbusBobax/NB.png",
             description:
-                "Jasa joki Valorant yang berhasil membantu 500+ player mencapai rank impian mereka. Dengan tingkat kepuasan 98% dan zero ban rate.",
+                "Server Discord Nimbus Bobax digunakan sebagai tempat layanan top up Robux dengan sistem yang tertata dan mudah digunakan. Server ini dilengkapi dengan otomatisasi dasar untuk mendukung proses akses market, pengelolaan role, serta komunikasi antara admin dan user agar transaksi berjalan lebih rapi dan efisien. Server ini dikembangkan oleh prodhite",
+
             images: [
-                "/portfolio/02-joki-valorant/jv-2.png",
-                "/portfolio/02-joki-valorant/jv-3.png",
-                "/portfolio/02-joki-valorant/jv-4.png",
-                "/portfolio/02-joki-valorant/jv-5.png",
-                "/portfolio/02-joki-valorant/jv-6.png",
-                "/portfolio/02-joki-valorant/jv-7.png",
-                "/portfolio/02-joki-valorant/jv-8.png",
-                "/portfolio/02-joki-valorant/jv-9.png",
-                "/portfolio/02-joki-valorant/jv-10.png",
-                "/portfolio/02-joki-valorant/jv-11.png",
-                "/portfolio/02-joki-valorant/jv-12.png",
+                "/portfolio/09-NimbusBobax/NB.png",
+                "/portfolio/09-NimbusBobax/NB-01.png",
+                "/portfolio/09-NimbusBobax/NB-02.png",
+                "/portfolio/09-NimbusBobax/NB-03.png",
+                "/portfolio/09-NimbusBobax/NB-04.png",
+                "/portfolio/09-NimbusBobax/NB-05.png",
+                "/portfolio/09-NimbusBobax/NB-06.png",
+                "/portfolio/09-NimbusBobax/NB-07.png",
+                "/portfolio/09-NimbusBobax/NB-08.png",
             ],
-            features: ["500+ Satisfied Customers", "98% Success Rate", "Zero Ban Rate", "24/7 Support"],
-            technology: ["Valorant", "Riot Vanguard", "Valorant Tracker"],
-            integration: ["Discord", "Valorant Tracker", "Progress Dashboard"],
-            link: "#",
+            features: [
+                "Auto Role System",
+                "Custom Bot Integration",
+                "Voice Channel Management",
+                "Private Channel",
+                "Adjust Permissions",
+            ],
+            technology: ["Discord", "Discord.Js"],
+            integration: ["Discohook", "Moderation Tools", "Youtube"],
+            link: "https://discord.gg/KxkG6ZEJ32",
         },
         {
             id: 2,
@@ -72,16 +77,53 @@ export default function PortfolioSection() {
         },
         {
             id: 3,
-            title: "Custom Emoji Pack - GGENK",
-            type: "Custom Sticker/Emoji",
-            thumbnail: "/portfolio/03-cs-ggenk/cs-1.png",
+            title: "Yummy Tails",
+            type: "Discord Server Development",
+            thumbnail: "/portfolio/08-yummytails/YT.png",
             description:
-                "Pembuatan 17 custom emoji dengan tema anime untuk Discord server. Setiap emoji dirancang dengan detail tinggi dan konsisten dengan brand identity server.",
-            images: ["/portfolio/03-cs-ggenk/cs-1.png", "/portfolio/03-cs-ggenk/cs-2.png"],
-            features: ["17 Unique Emojis", "Consistent Art Style", "Multiple Expressions", "High Resolution"],
-            technology: ["Adobe Illustrator", "Photoshop", "Procreate"],
-            integration: ["Discord"],
-            link: "#",
+                "Server Discord Quackers — freshly baked & siap dipakai! Dibangun dengan sistem otomatisasi modern untuk pengalaman komunitas yang rapi, nyaman, dan interaktif. Mulai dari auto-role, custom bot, hingga pengelolaan channel yang efisien — semuanya diracik khusus agar komunitas Yummy Tails terasa lebih hidup. Server ini dikembangkan oleh prodhite",
+
+            images: [
+                "/portfolio/08-yummytails/YT.png",
+                "/portfolio/08-yummytails/YT-01.png",
+                "/portfolio/08-yummytails/YT-02.png",
+                "/portfolio/08-yummytails/YT-03.png",
+                "/portfolio/08-yummytails/YT-04.png",
+                "/portfolio/08-yummytails/YT-05.png",
+                "/portfolio/08-yummytails/YT-06.png",
+                "/portfolio/08-yummytails/YT-07.png",
+                "/portfolio/08-yummytails/YT-08.png",
+                "/portfolio/08-yummytails/YT-09.png",
+                "/portfolio/08-yummytails/YT-10.png",
+                "/portfolio/08-yummytails/YT-11.png",
+                "/portfolio/08-yummytails/YT-12.png",
+                "/portfolio/08-yummytails/YT-13.png",
+                "/portfolio/08-yummytails/YT-14.png",
+                "/portfolio/08-yummytails/YT-15.png",
+                "/portfolio/08-yummytails/YT-16.png",
+                "/portfolio/08-yummytails/YT-17.png",
+                "/portfolio/08-yummytails/YT-18.png",
+                "/portfolio/08-yummytails/YT-19.png",
+                "/portfolio/08-yummytails/YT-20.png",
+                "/portfolio/08-yummytails/YT-21.png",
+                "/portfolio/08-yummytails/YT-22.png",
+                "/portfolio/08-yummytails/YT-23.png",
+                "/portfolio/08-yummytails/YT-24.png",
+                "/portfolio/08-yummytails/YT-25.png",
+                "/portfolio/08-yummytails/YT-26.png",
+                "/portfolio/08-yummytails/YT-27.png",
+            ],
+            features: [
+                "Auto Role System",
+                "Custom Bot Integration",
+                "Voice Channel Management",
+                "Private Channel",
+                "User Leveling",
+                "Adjust Permissions",
+            ],
+            technology: ["Discord", "Discord.Js"],
+            integration: ["Discohook", "Moderation Tools", "Youtube"],
+            link: "https://discord.gg/KqdBWf74Vp",
         },
         {
             id: 4,
@@ -198,6 +240,19 @@ export default function PortfolioSection() {
         },
         {
             id: 7,
+            title: "Custom Emoji Pack - GGENK",
+            type: "Custom Sticker/Emoji",
+            thumbnail: "/portfolio/03-cs-ggenk/cs-1.png",
+            description:
+                "Pembuatan 17 custom emoji dengan tema anime untuk Discord server. Setiap emoji dirancang dengan detail tinggi dan konsisten dengan brand identity server.",
+            images: ["/portfolio/03-cs-ggenk/cs-1.png", "/portfolio/03-cs-ggenk/cs-2.png"],
+            features: ["17 Unique Emojis", "Consistent Art Style", "Multiple Expressions", "High Resolution"],
+            technology: ["Adobe Illustrator", "Photoshop", "Procreate"],
+            integration: ["Discord"],
+            link: "#",
+        },
+        {
+            id: 8,
             title: "Best Friend Studio",
             type: "Graphic Design",
             thumbnail: "/portfolio/07-BFS/BFS.png",
@@ -226,54 +281,29 @@ export default function PortfolioSection() {
             link: "https://www.instagram.com/bestfriendsstudio/",
         },
         {
-            id: 8,
-            title: "Yummy Tails",
-            type: "Discord Server Development",
-            thumbnail: "/portfolio/08-yummytails/YT.png",
+            id: 9,
+            title: "Valorant Rank Boost",
+            type: "Boosting Service",
+            thumbnail: "/portfolio/02-joki-valorant/jv-1.png",
             description:
-                "Server Discord Quackers — freshly baked & siap dipakai! Dibangun dengan sistem otomatisasi modern untuk pengalaman komunitas yang rapi, nyaman, dan interaktif. Mulai dari auto-role, custom bot, hingga pengelolaan channel yang efisien — semuanya diracik khusus agar komunitas Yummy Tails terasa lebih hidup. Server ini dikembangkan oleh prodhite",
-
+                "Jasa joki Valorant yang berhasil membantu 500+ player mencapai rank impian mereka. Dengan tingkat kepuasan 98% dan zero ban rate.",
             images: [
-                "/portfolio/08-yummytails/YT.png",
-                "/portfolio/08-yummytails/YT-01.png",
-                "/portfolio/08-yummytails/YT-02.png",
-                "/portfolio/08-yummytails/YT-03.png",
-                "/portfolio/08-yummytails/YT-04.png",
-                "/portfolio/08-yummytails/YT-05.png",
-                "/portfolio/08-yummytails/YT-06.png",
-                "/portfolio/08-yummytails/YT-07.png",
-                "/portfolio/08-yummytails/YT-08.png",
-                "/portfolio/08-yummytails/YT-09.png",
-                "/portfolio/08-yummytails/YT-10.png",
-                "/portfolio/08-yummytails/YT-11.png",
-                "/portfolio/08-yummytails/YT-12.png",
-                "/portfolio/08-yummytails/YT-13.png",
-                "/portfolio/08-yummytails/YT-14.png",
-                "/portfolio/08-yummytails/YT-15.png",
-                "/portfolio/08-yummytails/YT-16.png",
-                "/portfolio/08-yummytails/YT-17.png",
-                "/portfolio/08-yummytails/YT-18.png",
-                "/portfolio/08-yummytails/YT-19.png",
-                "/portfolio/08-yummytails/YT-20.png",
-                "/portfolio/08-yummytails/YT-21.png",
-                "/portfolio/08-yummytails/YT-22.png",
-                "/portfolio/08-yummytails/YT-23.png",
-                "/portfolio/08-yummytails/YT-24.png",
-                "/portfolio/08-yummytails/YT-25.png",
-                "/portfolio/08-yummytails/YT-26.png",
-                "/portfolio/08-yummytails/YT-27.png",
+                "/portfolio/02-joki-valorant/jv-2.png",
+                "/portfolio/02-joki-valorant/jv-3.png",
+                "/portfolio/02-joki-valorant/jv-4.png",
+                "/portfolio/02-joki-valorant/jv-5.png",
+                "/portfolio/02-joki-valorant/jv-6.png",
+                "/portfolio/02-joki-valorant/jv-7.png",
+                "/portfolio/02-joki-valorant/jv-8.png",
+                "/portfolio/02-joki-valorant/jv-9.png",
+                "/portfolio/02-joki-valorant/jv-10.png",
+                "/portfolio/02-joki-valorant/jv-11.png",
+                "/portfolio/02-joki-valorant/jv-12.png",
             ],
-            features: [
-                "Auto Role System",
-                "Custom Bot Integration",
-                "Voice Channel Management",
-                "Private Channel",
-                "User Leveling",
-                "Adjust Permissions",
-            ],
-            technology: ["Discord", "Discord.Js"],
-            integration: ["Discohook", "Moderation Tools", "Youtube"],
-            link: "https://discord.gg/KqdBWf74Vp",
+            features: ["500+ Satisfied Customers", "98% Success Rate", "Zero Ban Rate", "24/7 Support"],
+            technology: ["Valorant", "Riot Vanguard", "Valorant Tracker"],
+            integration: ["Discord", "Valorant Tracker", "Progress Dashboard"],
+            link: "#",
         },
     ];
 
@@ -448,7 +478,10 @@ export default function PortfolioSection() {
                                             {/* Image Section - Smaller */}
                                             <div className="relative aspect-video lg:aspect-auto lg:h-full">
                                                 <Image
-                                                    src={portfolios[carouselIndex].thumbnail || "/placeholder.svg"}
+                                                    src={
+                                                        portfolios[carouselIndex].thumbnail ||
+                                                        "/placeholder.svg"
+                                                    }
                                                     alt={portfolios[carouselIndex].title}
                                                     width={500}
                                                     height={300}
@@ -470,18 +503,27 @@ export default function PortfolioSection() {
                                                 </h3>
 
                                                 <p className="text-white/80 leading-relaxed mb-4 text-sm line-clamp-3">
-                                                    {truncateDescription(portfolios[carouselIndex].description, 150)}
+                                                    {truncateDescription(
+                                                        portfolios[carouselIndex].description,
+                                                        150
+                                                    )}
                                                 </p>
 
                                                 <div className="mb-4">
-                                                    <h4 className="text-white font-semibold mb-2 text-sm">Features</h4>
+                                                    <h4 className="text-white font-semibold mb-2 text-sm">
+                                                        Features
+                                                    </h4>
                                                     <ul className="text-white/80 space-y-1 text-sm">
-                                                        {portfolios[carouselIndex].features.slice(0, 3).map((feature, index) => (
-                                                            <li key={index} className="flex items-center">
-                                                                <span className="w-1.5 h-1.5 bg-orange-500 rounded-full mr-2" />
-                                                                <span className="line-clamp-1">{feature}</span>
-                                                            </li>
-                                                        ))}
+                                                        {portfolios[carouselIndex].features
+                                                            .slice(0, 3)
+                                                            .map((feature, index) => (
+                                                                <li key={index} className="flex items-center">
+                                                                    <span className="w-1.5 h-1.5 bg-orange-500 rounded-full mr-2" />
+                                                                    <span className="line-clamp-1">
+                                                                        {feature}
+                                                                    </span>
+                                                                </li>
+                                                            ))}
                                                     </ul>
                                                 </div>
 
@@ -592,10 +634,11 @@ export default function PortfolioSection() {
                                                 height={600}
                                                 className="w-full h-full object-cover"
                                             />
-                                            
+
                                             {/* Image Counter */}
                                             <div className="absolute top-4 right-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
-                                                {currentImageIndex + 1} / {portfolios[selectedPortfolio].images.length}
+                                                {currentImageIndex + 1} /{" "}
+                                                {portfolios[selectedPortfolio].images.length}
                                             </div>
                                         </div>
 
