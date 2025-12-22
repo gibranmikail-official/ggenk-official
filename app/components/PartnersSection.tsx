@@ -49,11 +49,12 @@ export default function PartnersSection() {
                     viewport={{ once: true }}
                 >
                     <div className="max-w-4xl flex flex-col items-center mx-auto px-4">
+                        
                         <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4 mt-5">
-                            GGENK{" "}
                             <span className="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">
-                                Partnerships
+                                GGENK{" "}
                             </span>
+                            Partnerships
                         </h2>
 
                         <p className="text-xl text-white/80 mb-10 leading-relaxed">
@@ -62,11 +63,14 @@ export default function PartnersSection() {
                     </div>
                     
                     {/* Marquee dengan direction "right" untuk slide kanan ke kiri */}
-                    <Marquee 
+                    <div className="container mx-auto">
+<Marquee 
                         items={partnersData} 
                         direction="right" 
                         speed={15} 
                     />
+                    </div>
+                    
                 </motion.div>
             </div>
         </section>

@@ -9,6 +9,7 @@ import PortfolioSection from "./components/PortfolioSection";
 import GallerySection from "./components/GallerySection";
 import TestimonialSection from "./components/TestimonialSection";
 import ContactSection from "./components/ContactSection";
+import MapSection from "./components/MapSection";
 import Footer from "./components/Footer";
 import ParticleBackground from "./components/ParticleBackground";
 import FloatingParticles from "./components/FloatingParticles";
@@ -56,6 +57,7 @@ export default function Home() {
                     <GallerySection />
                     <TestimonialSection />
                     <PartnersSection />
+                    <MapSection />
                     <ContactSection />
                 </main>
 
