@@ -14,6 +14,85 @@ export default function GallerySection() {
 
     const galleries = [
         {
+            id: 15,
+            title: "GGENK x INDOSKY NEW YEAR PARTY",
+            date: "31 December 2025",
+            thumbnail: "/gallery/15-newyear/NYP.png",
+            images: [
+                "/gallery/15-newyear/NYP.png",
+                "/gallery/15-newyear/NYP-00.png",
+                "/gallery/15-newyear/NYP-01.png",
+                "/gallery/15-newyear/NYP-02.png",
+                "/gallery/15-newyear/NYP-03.png",
+                "/gallery/15-newyear/NYP-04.png",
+                "/gallery/15-newyear/NYP-05.png",
+                "/gallery/15-newyear/NYP-06.png",
+                "/gallery/15-newyear/NYP-07.png",
+                "/gallery/15-newyear/NYP-08.png",
+                "/gallery/15-newyear/NYP-09.png",
+                "/gallery/15-newyear/NYP-10.png",
+                "/gallery/15-newyear/NYP-11.png",
+                "/gallery/15-newyear/NYP-12.png",
+                "/gallery/15-newyear/NYP-13.png",
+                "/gallery/15-newyear/NYP-14.png",
+                "/gallery/15-newyear/NYP-15.png",
+                "/gallery/15-newyear/NYP-16.png",
+                "/gallery/15-newyear/NYP-17.png",
+                "/gallery/15-newyear/NYP-18.png",
+                "/gallery/15-newyear/NYP-19.png",
+                "/gallery/15-newyear/NYP-20.png",
+                "/gallery/15-newyear/NYP-21.png",
+                "/gallery/15-newyear/NYP-22.png",
+                "/gallery/15-newyear/NYP-23.png",
+                "/gallery/15-newyear/NYP-24.png",
+                "/gallery/15-newyear/NYP-25.png",
+                "/gallery/15-newyear/NYP-26.png",
+                "/gallery/15-newyear/NYP-27.png",
+                "/gallery/15-newyear/NYP-28.png",
+                "/gallery/15-newyear/NYP-29.png",
+                "/gallery/15-newyear/NYP-30.png",
+                "/gallery/15-newyear/NYP-31.png",
+                "/gallery/15-newyear/NYP-32.png",
+                "/gallery/15-newyear/NYP-33.png",
+                "/gallery/15-newyear/NYP-34.png",
+                "/gallery/15-newyear/NYP-35.png",
+                "/gallery/15-newyear/NYP-36.png",
+                "/gallery/15-newyear/NYP-37.png",
+                "/gallery/15-newyear/NYP-38.png",
+                "/gallery/15-newyear/NYP-39.png",
+                "/gallery/15-newyear/NYP-40.png",
+                "/gallery/15-newyear/NYP-41.png",
+                "/gallery/15-newyear/NYP-42.png",
+                "/gallery/15-newyear/NYP-43.png",
+                "/gallery/15-newyear/NYP-44.png",
+                "/gallery/15-newyear/NYP-45.png",
+                "/gallery/15-newyear/NYP-46.png",
+                "/gallery/15-newyear/NYP-47.png",
+                "/gallery/15-newyear/NYP-48.png",
+                "/gallery/15-newyear/NYP-49.png",
+                "/gallery/15-newyear/NYP-50.png",
+                "/gallery/15-newyear/NYP-51.png",
+                "/gallery/15-newyear/NYP-52.png",
+                "/gallery/15-newyear/NYP-53.png",
+                "/gallery/15-newyear/NYP-54.png",
+                "/gallery/15-newyear/NYP-55.png",
+                "/gallery/15-newyear/NYP-56.png",
+                "/gallery/15-newyear/NYP-57.png",
+                "/gallery/15-newyear/NYP-58.png",
+                "/gallery/15-newyear/NYP-59.png",
+                "/gallery/15-newyear/NYP-61.png",
+                "/gallery/15-newyear/NYP-62.png",
+                "/gallery/15-newyear/NYP-63.png",
+                "/gallery/15-newyear/NYP-64.png",
+                "/gallery/15-newyear/NYP-65.png",
+                "/gallery/15-newyear/NYP-66.png",
+                "/gallery/15-newyear/NYP-67.png",
+                "/gallery/15-newyear/NYP-68.png",
+                "/gallery/15-newyear/NYP-69.png",
+                "/gallery/15-newyear/NYP-70.png",
+            ],
+        },
+        {
             id: 14,
             title: "Rassa Kopi Kemang",
             date: "18 Oktober 2025",
@@ -354,19 +433,22 @@ export default function GallerySection() {
     };
 
     // Keyboard navigation
-    const handleKeyDown = useCallback((e: KeyboardEvent) => {
-        if (selectedGallery !== null) {
-            if (e.key === "ArrowLeft") prevImage();
-            if (e.key === "ArrowRight") nextImage();
-            if (e.key === "Escape") {
-                if (isZoomed) {
-                    setIsZoomed(false);
-                } else {
-                    setSelectedGallery(null);
+    const handleKeyDown = useCallback(
+        (e: KeyboardEvent) => {
+            if (selectedGallery !== null) {
+                if (e.key === "ArrowLeft") prevImage();
+                if (e.key === "ArrowRight") nextImage();
+                if (e.key === "Escape") {
+                    if (isZoomed) {
+                        setIsZoomed(false);
+                    } else {
+                        setSelectedGallery(null);
+                    }
                 }
             }
-        }
-    }, [selectedGallery, isZoomed, prevImage, nextImage]);
+        },
+        [selectedGallery, isZoomed, prevImage, nextImage]
+    );
 
     useEffect(() => {
         document.addEventListener("keydown", handleKeyDown);
@@ -376,7 +458,7 @@ export default function GallerySection() {
     const downloadImage = () => {
         if (selectedGallery !== null) {
             const imageUrl = galleries[selectedGallery].images[currentImageIndex];
-            const link = document.createElement('a');
+            const link = document.createElement("a");
             link.href = imageUrl;
             link.download = `gallery-${galleries[selectedGallery].title}-${currentImageIndex + 1}.jpg`;
             document.body.appendChild(link);
@@ -449,71 +531,75 @@ export default function GallerySection() {
                             {/* Compact Slideshow Container */}
                             <div className="relative h-[400px] flex-1">
                                 <AnimatePresence mode="wait">
-                                    {galleries.map((gallery, index) => (
-                                        index === currentSlide && (
-                                            <motion.div
-                                                key={gallery.id}
-                                                initial={{ 
-                                                    opacity: 0,
-                                                    scale: 0.9,
-                                                    x: 100
-                                                }}
-                                                animate={{ 
-                                                    opacity: 1,
-                                                    scale: 1,
-                                                    x: 0,
-                                                    transition: {
-                                                        type: "spring",
-                                                        stiffness: 100,
-                                                        damping: 20
-                                                    }
-                                                }}
-                                                exit={{ 
-                                                    opacity: 0,
-                                                    scale: 0.9,
-                                                    x: -100
-                                                }}
-                                                className="absolute inset-0 cursor-pointer"
-                                                onClick={() => {
-                                                    setSelectedGallery(index);
-                                                    setCurrentImageIndex(0);
-                                                }}
-                                            >
-                                                <div className="relative backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl overflow-hidden h-full hover:bg-white/15 transition-all duration-300">
-                                                    <div className="relative w-full h-full">
-                                                        <div className="absolute inset-0">
-                                                            <Image
-                                                                src={gallery.thumbnail || "/placeholder.svg"}
-                                                                alt={gallery.title}
-                                                                fill
-                                                                className="object-cover"
-                                                            />
-                                                            {/* Gradient Overlay */}
-                                                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                                                            
-                                                            {/* Content */}
-                                                            <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                                                                <h3 className="text-xl font-bold mb-1">
-                                                                    {gallery.title}
-                                                                </h3>
-                                                                <p className="text-white/70 text-sm mb-3">
-                                                                    {gallery.date}
-                                                                </p>
-                                                                <div className="flex items-center gap-2">
-                                                                    <span className="bg-orange-500/20 border border-orange-500/30 text-orange-300 px-2 py-1 rounded-full text-xs">
-                                                                        {gallery.images.length} photos
-                                                                    </span>
-                                                                    <span className="text-white/60 text-xs">
-                                                                        Click to view gallery
-                                                                    </span>
+                                    {galleries.map(
+                                        (gallery, index) =>
+                                            index === currentSlide && (
+                                                <motion.div
+                                                    key={gallery.id}
+                                                    initial={{
+                                                        opacity: 0,
+                                                        scale: 0.9,
+                                                        x: 100,
+                                                    }}
+                                                    animate={{
+                                                        opacity: 1,
+                                                        scale: 1,
+                                                        x: 0,
+                                                        transition: {
+                                                            type: "spring",
+                                                            stiffness: 100,
+                                                            damping: 20,
+                                                        },
+                                                    }}
+                                                    exit={{
+                                                        opacity: 0,
+                                                        scale: 0.9,
+                                                        x: -100,
+                                                    }}
+                                                    className="absolute inset-0 cursor-pointer"
+                                                    onClick={() => {
+                                                        setSelectedGallery(index);
+                                                        setCurrentImageIndex(0);
+                                                    }}
+                                                >
+                                                    <div className="relative backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl overflow-hidden h-full hover:bg-white/15 transition-all duration-300">
+                                                        <div className="relative w-full h-full">
+                                                            <div className="absolute inset-0">
+                                                                <Image
+                                                                    src={
+                                                                        gallery.thumbnail ||
+                                                                        "/placeholder.svg"
+                                                                    }
+                                                                    alt={gallery.title}
+                                                                    fill
+                                                                    className="object-cover"
+                                                                />
+                                                                {/* Gradient Overlay */}
+                                                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+                                                                {/* Content */}
+                                                                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                                                                    <h3 className="text-xl font-bold mb-1">
+                                                                        {gallery.title}
+                                                                    </h3>
+                                                                    <p className="text-white/70 text-sm mb-3">
+                                                                        {gallery.date}
+                                                                    </p>
+                                                                    <div className="flex items-center gap-2">
+                                                                        <span className="bg-orange-500/20 border border-orange-500/30 text-orange-300 px-2 py-1 rounded-full text-xs">
+                                                                            {gallery.images.length} photos
+                                                                        </span>
+                                                                        <span className="text-white/60 text-xs">
+                                                                            Click to view gallery
+                                                                        </span>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </motion.div>
-                                        )
-                                    ))}
+                                                </motion.div>
+                                            )
+                                    )}
                                 </AnimatePresence>
 
                                 {/* Slide Indicators */}
@@ -587,7 +673,9 @@ export default function GallerySection() {
 
                                         {/* Hover Overlay */}
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
-                                            <span className="text-white text-sm font-medium">View Gallery</span>
+                                            <span className="text-white text-sm font-medium">
+                                                View Gallery
+                                            </span>
                                         </div>
                                     </div>
 
@@ -632,7 +720,8 @@ export default function GallerySection() {
                                             <p className="text-white/60 text-sm">
                                                 {galleries[selectedGallery].date} •{" "}
                                                 <span className="text-orange-400">
-                                                    {currentImageIndex + 1} of {galleries[selectedGallery].images.length}
+                                                    {currentImageIndex + 1} of{" "}
+                                                    {galleries[selectedGallery].images.length}
                                                 </span>
                                             </p>
                                         </div>
@@ -679,7 +768,7 @@ export default function GallerySection() {
                                             animate={{ opacity: 1, scale: 1 }}
                                             transition={{ duration: 0.3 }}
                                             className={`bg-gradient-to-br from-white/5 to-white/10 rounded-xl overflow-hidden border border-white/10 ${
-                                                isZoomed ? 'cursor-zoom-out' : 'cursor-zoom-in'
+                                                isZoomed ? "cursor-zoom-out" : "cursor-zoom-in"
                                             }`}
                                             onClick={() => setIsZoomed(!isZoomed)}
                                         >
@@ -694,9 +783,9 @@ export default function GallerySection() {
                                                 width={800}
                                                 height={600}
                                                 className={`w-full transition-all duration-300 ${
-                                                    isZoomed 
-                                                        ? 'h-auto max-h-[60vh] object-contain' 
-                                                        : 'h-[400px] object-cover'
+                                                    isZoomed
+                                                        ? "h-auto max-h-[60vh] object-contain"
+                                                        : "h-[400px] object-cover"
                                                 }`}
                                             />
                                         </motion.div>
@@ -725,7 +814,7 @@ export default function GallerySection() {
                                     </div>
 
                                     {/* Enhanced Thumbnail Strip */}
-                                    <motion.div 
+                                    <motion.div
                                         initial={{ opacity: 0, y: 10 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ delay: 0.2 }}

@@ -9,123 +9,93 @@ export default function TestimonialSection() {
     const testimonials = [
         {
             id: 1,
-            name: "Yudha Rizky",
+            name: "alphaworks.id",
             title: "Beyond 9 to 5",
             service: "Discord Server Development",
             rating: 5,
-            avatar: "/testimoni/pp.png",
+            avatar: "/testi-pp/Yudha-Rizky.jpg",
             testimonial:
                 "GGENK berhasil bikin Discord server yang sangat keren untuk komunitas freelance kami! Sistemnya rapi, bot-nya responsive, dan member jadi lebih aktif. Highly recommended! Proses pengerjaan cepat dan komunikasi sangat baik.",
         },
         {
             id: 2,
+            name: "Abun Sungkar (buN)",
+            title: "Bun's Ninja",
+            service: "Discord Server Development",
+            rating: 5,
+            avatar: "/testi-pp/Abun-Sungkar.jpg",
+            testimonial:
+                "Gokil! Server gue sekarang keliatan rapi, clean, dan enak dipakai. Role, channel, sampe automod semuanya jelas. Member jadi betah nongkrong — gue tinggal nikmatin aja, nggak perlu pusing setting-setting lagi.",
+        },
+        {
+            id: 3,
+            name: "Calista Arum (Aca)",
+            title: "Aca-demy",
+            service: "Discord Server Development",
+            rating: 5,
+            avatar: "/testi-pp/Callista-Arum.jpg",
+            testimonial:
+                "Dari awal proses sampe jadi, semuanya dijelasin satu-satu dan super sabar. Fitur belajarnya dibikin terstruktur, ada kategori, ada bot, ada sistem role. Jadi lebih profesional dan gampang dipakai member.",
+        },
+        {
+            id: 4,
+            name: "CaptSiren",
+            title: "Indo Sky",
+            service: "Discord Server Development",
+            rating: 5,
+            avatar: "/testi-pp/CaptSiren.png",
+            testimonial:
+                "Bhaappp!! Ini seriuss server gwe jadi sebagus inii?? Jujurr jadi enak di pandang dan bnyk fitur, tiada dua GGENK selalu di hati, dan di ampela",
+        },
+        {
+            id: 5,
             name: "Yummy Tails",
             title: "Quackers",
             service: "Discord Server Development",
             rating: 5,
-            avatar: "/testimoni/pp.png",
+            avatar: "/testi-pp/Yummy.jpeg",
             testimonial:
                 "Sat Set No Debat (Paling Cepat dan Best!). Gila, hasilnya literally sat set sat set! Anti-ribet, gak pake mikir keras. Plus point-nya? Effort-ku nol, tapi hasilnya mantul abis. Padahal cuma ngirim - ngirim video TikTok seamless aja langsung jadi, mantulityyyyy!",
         },
         {
-            id: 3,
+            id: 6,
             name: "Rhyz",
             title: "Nimbus Bobax",
             service: "Discord Server Development",
             rating: 5,
-            avatar: "/testimoni/pp.png",
+            avatar: "/testi-pp/rhyz.png",
             testimonial:
                 "Terimakasih bang, discordnya jadi tertata rapih dan termanage dengan baik. Easy look and easy to navigate untuk community. 100% recommended",
         },
         {
-            id: 4,
+            id: 7,
             name: "WEMZ",
             title: "Interbond",
             service: "Discord Server Development",
             rating: 5,
-            avatar: "/testimoni/pp.png",
+            avatar: "/testi-pp/Wemz.png",
             testimonial:
                 "masprodhitee server devnya gacor banget responsif, botnya useful, layoutnya juga simple tapi mudah dipahamin buat pemula, navigasinya juga terarah banget dan menyesuaikan user, pokonya gacorrr server developernya🫡🫡",
         },
         {
-            id: 5,
+            id: 8,
             name: "Juan Herman",
-            title: "JUCROT",
+            title: "JUCROD",
             service: "Discord Server Development",
-            rating: 0,
-            avatar: "/testimoni/pp.png",
+            rating: 5,
+            avatar: "/testi-pp/Juan-Herman.jpg",
             testimonial:
-                "-",
+                "Mantap! Server JUCROD sekarang jauh lebih tertata, ringan, dan keliatan ‘hidup’. Event, announcement, sampai sistem leveling dibuat otomatis. Mudah dikelola, tinggal jalanin komunitasnya aja. Recommended!",
         },
         {
-            id: 6,
+            id: 9,
             name: "Anggana G.",
             title: "PT BFS Bintang Lima",
             service: "Logo Design",
             rating: 5,
-            avatar: "/testimoni/pp.png",
+            avatar: "/testi-pp/Anggana.png",
             testimonial:
                 "Logo yang dihasilkan sangat sesuai dengan visi brand kami. Simpel, berkarakter, dan terlihat profesional. Sangat direkomendasikan!",
-        },
-        {
-            id: 7,
-            name: "Rizky Maulana",
-            title: "Gaming Enthusiast",
-            service: "Jasa Joki Valorant",
-            rating: 5,
-            avatar: "/testimoni/pp.png",
-            testimonial:
-                "Rankku stuck di Gold berbulan-bulan, tapi setelah pakai jasa ini langsung naik ke Diamond! Cepat, aman, dan komunikatif banget. Bener-bener worth it! Laporan progress diberikan secara rutin.",
-        },
-        {
-            id: 8,
-            name: "Fahri Ramadhan",
-            title: "Genshin Impact Player",
-            service: "Jasa Joki Genshin Impact",
-            rating: 5,
-            avatar: "/testimoni/pp.png",
-            testimonial:
-                "Mau farming artifact tapi nggak punya waktu. Untung ada jasa ini, akun aman, pelayanan ramah, dan progressnya cepet banget. Recommended banget! Hasil artifactnya juga bagus-bagus.",
-        },
-        {
-            id: 9,
-            name: "Dewi Anggraini",
-            title: "YouTuber",
-            service: "Video Editing",
-            rating: 5,
-            avatar: "/testimoni/pp.png",
-            testimonial:
-                "Editing-nya bener-bener keren, hasilnya sesuai ekspektasi! Transisi halus, efeknya pas, dan audio mixing-nya juga clean. Channel YouTube-ku jadi makin pro! Engagement meningkat signifikan.",
-        },
-        {
-            id: 10,
-            name: "Alvin Kurniawan",
-            title: "Marketing Manager",
-            service: "Motion Design",
-            rating: 5,
-            avatar: "/testimoni/pp.png",
-            testimonial:
-                "Order animasi buat brand campaign, hasilnya clean dan profesional banget. Brief langsung dipahami, dan revisi cepat. Udah pasti bakal repeat order! Kualitas premium dengan harga terjangkau.",
-        },
-        {
-            id: 11,
-            name: "Putri Aulia",
-            title: "Community Manager",
-            service: "Custom Sticker/Emoji",
-            rating: 5,
-            avatar: "/testimoni/pp.png",
-            testimonial:
-                "Stiker-nya lucu-lucu dan ekspresif banget! Jadi makin seru chatting pakai stiker buatan sendiri. Fast response juga. Makasih banyak! Desainnya original dan tidak ada duplikat.",
-        },
-        {
-            id: 12,
-            name: "Dimas Aditya",
-            title: "Personal Brand",
-            service: "Custom Sticker/Emoji",
-            rating: 5,
-            avatar: "/testimoni/pp.png",
-            testimonial:
-                "Logo buat brand personal aku dibikin modern dan unik. Sekalian minta versi sticker-nya juga, dan hasilnya keren parah! Desainnya bener-bener ngangkat image brand-ku. Very satisfied!",
         },
     ];
 
@@ -459,8 +429,7 @@ export default function TestimonialSection() {
                         {/* Current Position Indicator */}
                         <div className="text-center mt-4">
                             <span className="text-white/60 text-sm">
-                                Halaman {currentPage + 1} dari {totalPages} • Menampilkan{" "}
-                                {visibleTestimonials.length} testimoni
+                                Halaman {currentPage + 1} dari {totalPages}
                             </span>
                         </div>
                     </div>
