@@ -106,7 +106,6 @@ export default function PortfolioSection() {
                 "Text & Voice Channel Management",
                 "Text & Voice Channel Adjustment",
                 "Permission Adjustments",
-                
             ],
             technology: ["Discord", "Discord.Js"],
             integration: ["Discohook", "Moderation Tools", "Youtube"],
@@ -156,6 +155,11 @@ export default function PortfolioSection() {
             description:
                 "Server Discord resmi komunitas Roblox IndoSky dengan lebih dari 2000+ member aktif! Dilengkapi sistem otomatisasi canggih seperti auto-role, bot custom, ticketing system, hingga manajemen channel yang rapi. Tempat terbaik untuk berkumpul, berdiskusi, dan menikmati pengalaman komunitas Roblox yang seru dan terorganisir. Server ini dikembangkan oleh prodhite.",
             images: [
+                "/portfolio/04-indosky/IS-23.png",
+                "/portfolio/04-indosky/IS-24.png",
+                "/portfolio/04-indosky/IS-25.png",
+                "/portfolio/04-indosky/IS-26.png",
+                "/portfolio/04-indosky/IS-27.png",
                 "/portfolio/04-indosky/IS-13.png",
                 "/portfolio/04-indosky/IS-14.png",
                 "/portfolio/04-indosky/IS-15.png",
