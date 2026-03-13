@@ -14,22 +14,26 @@ export default function PortfolioSection() {
     const portfolios = [
         {
             id: 1,
-            title: "Nimbus Bobax",
+            title: "Yuda Purboyo Sunu Discord Server",
             type: "Discord Server Development",
-            thumbnail: "/portfolio/09-NimbusBobax/NB.png",
-            description:
-                "Server Discord Nimbus Bobax digunakan sebagai tempat layanan top up Robux dengan sistem yang tertata dan mudah digunakan. Server ini dilengkapi dengan otomatisasi dasar untuk mendukung proses akses market, pengelolaan role, serta komunikasi antara admin dan user agar transaksi berjalan lebih rapi dan efisien. Server ini dikembangkan oleh prodhite",
+            thumbnail: "/portfolio/12-yps/yps.png",
+            description: "",
 
             images: [
-                "/portfolio/09-NimbusBobax/NB.png",
-                "/portfolio/09-NimbusBobax/NB-01.png",
-                "/portfolio/09-NimbusBobax/NB-02.png",
-                "/portfolio/09-NimbusBobax/NB-03.png",
-                "/portfolio/09-NimbusBobax/NB-04.png",
-                "/portfolio/09-NimbusBobax/NB-05.png",
-                "/portfolio/09-NimbusBobax/NB-06.png",
-                "/portfolio/09-NimbusBobax/NB-07.png",
-                "/portfolio/09-NimbusBobax/NB-08.png",
+                "/portfolio/12-yps/yps.png",
+                "/portfolio/12-yps/yps-01.png",
+                "/portfolio/12-yps/yps-02.png",
+                "/portfolio/12-yps/yps-03.png",
+                "/portfolio/12-yps/yps-04.png",
+                "/portfolio/12-yps/yps-05.png",
+                "/portfolio/12-yps/yps-06.png",
+                "/portfolio/12-yps/yps-07.png",
+                "/portfolio/12-yps/yps-08.png",
+                "/portfolio/12-yps/yps-09.png",
+                "/portfolio/12-yps/yps-10.png",
+                "/portfolio/12-yps/yps-13.png",
+                "/portfolio/12-yps/yps-11.png",
+                "/portfolio/12-yps/yps-12.png",
             ],
             features: [
                 "Auto Role System",
@@ -231,73 +235,6 @@ export default function PortfolioSection() {
         },
         {
             id: 7,
-            title: "Custom Emoji Pack - GGENK",
-            type: "Custom Sticker/Emoji",
-            thumbnail: "/portfolio/03-cs-ggenk/cs-1.png",
-            description:
-                "Pembuatan 17 custom emoji dengan tema anime untuk Discord server. Setiap emoji dirancang dengan detail tinggi dan konsisten dengan brand identity server.",
-            images: ["/portfolio/03-cs-ggenk/cs-1.png", "/portfolio/03-cs-ggenk/cs-2.png"],
-            features: ["17 Unique Emojis", "Consistent Art Style", "Multiple Expressions", "High Resolution"],
-            technology: ["Adobe Illustrator", "Photoshop", "Procreate"],
-            integration: ["Discord"],
-            link: "#",
-        },
-        {
-            id: 8,
-            title: "Best Friend Studio",
-            type: "Graphic Design",
-            thumbnail: "/portfolio/07-BFS/BFS.png",
-            description:
-                "Proyek desain ini dibuat untuk mendukung perayaan 4th Anniversary Fun Padel Tournament yang diselenggarakan oleh Best Friends Studio, sebuah brand yang bergerak di bidang eyelash, nails & beauty. Desain ini menggabungkan elemen visual yang elegan, bersih, dan modern untuk menciptakan identitas acara yang profesional namun tetap ramah dan menarik. Dikerjakan oleh prodhite",
-
-            images: [
-                "/portfolio/07-BFS/BFS.png",
-                "/portfolio/07-BFS/BFS-1.png",
-                "/portfolio/07-BFS/BFS-2.png",
-                "/portfolio/07-BFS/BFS-3.png",
-                "/portfolio/07-BFS/BFS-4.png",
-                "/portfolio/07-BFS/BFS-5.jpg",
-                "/portfolio/07-BFS/BFS-6.jpg",
-            ],
-            features: [
-                "Desain Konsisten & Elegan sesuai identitas brand",
-                "Net Banner untuk event padel",
-                "Voucher Design (Free Treatment, Eyelash Voucher, Talent DNA, Yoga Voucher)",
-                "Twibbon Instagram (post & story)",
-                "Winners Board untuk pemenang turnamen",
-                "Visual minimalis, profesional, dan ramah audiens",
-            ],
-            technology: ["Adobe Photoshop", "Canva"],
-            integration: ["Instagram Post & Story", "Event Branding & Promotion"],
-            link: "https://www.instagram.com/bestfriendsstudio/",
-        },
-        {
-            id: 9,
-            title: "Valorant Rank Boost",
-            type: "Boosting Service",
-            thumbnail: "/portfolio/02-joki-valorant/jv-1.png",
-            description:
-                "Jasa joki Valorant yang berhasil membantu 500+ player mencapai rank impian mereka. Dengan tingkat kepuasan 98% dan zero ban rate.",
-            images: [
-                "/portfolio/02-joki-valorant/jv-2.png",
-                "/portfolio/02-joki-valorant/jv-3.png",
-                "/portfolio/02-joki-valorant/jv-4.png",
-                "/portfolio/02-joki-valorant/jv-5.png",
-                "/portfolio/02-joki-valorant/jv-6.png",
-                "/portfolio/02-joki-valorant/jv-7.png",
-                "/portfolio/02-joki-valorant/jv-8.png",
-                "/portfolio/02-joki-valorant/jv-9.png",
-                "/portfolio/02-joki-valorant/jv-10.png",
-                "/portfolio/02-joki-valorant/jv-11.png",
-                "/portfolio/02-joki-valorant/jv-12.png",
-            ],
-            features: ["500+ Satisfied Customers", "98% Success Rate", "Zero Ban Rate", "24/7 Support"],
-            technology: ["Valorant", "Riot Vanguard", "Valorant Tracker"],
-            integration: ["Discord", "Valorant Tracker", "Progress Dashboard"],
-            link: "#",
-        },
-        {
-            id: 10,
             title: "Yummy Tails",
             type: "Discord Server Development",
             thumbnail: "/portfolio/08-yummytails/YT.png",
@@ -347,7 +284,7 @@ export default function PortfolioSection() {
             link: "https://discord.gg/KqdBWf74Vp",
         },
         {
-            id: 11,
+            id: 8,
             title: "PT BFS Bintang Lima",
             type: "Logo Design",
             thumbnail: "/portfolio/11-BBL/BBL.png",
@@ -378,6 +315,93 @@ export default function PortfolioSection() {
             technology: ["Adobe Illustrator"],
             integration: ["-"],
             link: "",
+        },
+        {
+            id: 9,
+            title: "Nimbus Bobax",
+            type: "Discord Server Development",
+            thumbnail: "/portfolio/09-NimbusBobax/NB.png",
+            description:
+                "Server Discord Nimbus Bobax digunakan sebagai tempat layanan top up Robux dengan sistem yang tertata dan mudah digunakan. Server ini dilengkapi dengan otomatisasi dasar untuk mendukung proses akses market, pengelolaan role, serta komunikasi antara admin dan user agar transaksi berjalan lebih rapi dan efisien. Server ini dikembangkan oleh prodhite",
+
+            images: [
+                "/portfolio/09-NimbusBobax/NB.png",
+                "/portfolio/09-NimbusBobax/NB-01.png",
+                "/portfolio/09-NimbusBobax/NB-02.png",
+                "/portfolio/09-NimbusBobax/NB-03.png",
+                "/portfolio/09-NimbusBobax/NB-04.png",
+                "/portfolio/09-NimbusBobax/NB-05.png",
+                "/portfolio/09-NimbusBobax/NB-06.png",
+                "/portfolio/09-NimbusBobax/NB-07.png",
+                "/portfolio/09-NimbusBobax/NB-08.png",
+            ],
+        },
+        {
+            id: 10,
+            title: "Custom Emoji Pack - GGENK",
+            type: "Custom Sticker/Emoji",
+            thumbnail: "/portfolio/03-cs-ggenk/cs-1.png",
+            description:
+                "Pembuatan 17 custom emoji dengan tema anime untuk Discord server. Setiap emoji dirancang dengan detail tinggi dan konsisten dengan brand identity server.",
+            images: ["/portfolio/03-cs-ggenk/cs-1.png", "/portfolio/03-cs-ggenk/cs-2.png"],
+            features: ["17 Unique Emojis", "Consistent Art Style", "Multiple Expressions", "High Resolution"],
+            technology: ["Adobe Illustrator", "Photoshop", "Procreate"],
+            integration: ["Discord"],
+            link: "#",
+        },
+        {
+            id: 11,
+            title: "Best Friend Studio",
+            type: "Graphic Design",
+            thumbnail: "/portfolio/07-BFS/BFS.png",
+            description:
+                "Proyek desain ini dibuat untuk mendukung perayaan 4th Anniversary Fun Padel Tournament yang diselenggarakan oleh Best Friends Studio, sebuah brand yang bergerak di bidang eyelash, nails & beauty. Desain ini menggabungkan elemen visual yang elegan, bersih, dan modern untuk menciptakan identitas acara yang profesional namun tetap ramah dan menarik. Dikerjakan oleh prodhite",
+
+            images: [
+                "/portfolio/07-BFS/BFS.png",
+                "/portfolio/07-BFS/BFS-1.png",
+                "/portfolio/07-BFS/BFS-2.png",
+                "/portfolio/07-BFS/BFS-3.png",
+                "/portfolio/07-BFS/BFS-4.png",
+                "/portfolio/07-BFS/BFS-5.jpg",
+                "/portfolio/07-BFS/BFS-6.jpg",
+            ],
+            features: [
+                "Desain Konsisten & Elegan sesuai identitas brand",
+                "Net Banner untuk event padel",
+                "Voucher Design (Free Treatment, Eyelash Voucher, Talent DNA, Yoga Voucher)",
+                "Twibbon Instagram (post & story)",
+                "Winners Board untuk pemenang turnamen",
+                "Visual minimalis, profesional, dan ramah audiens",
+            ],
+            technology: ["Adobe Photoshop", "Canva"],
+            integration: ["Instagram Post & Story", "Event Branding & Promotion"],
+            link: "https://www.instagram.com/bestfriendsstudio/",
+        },
+        {
+            id: 12,
+            title: "Valorant Rank Boost",
+            type: "Boosting Service",
+            thumbnail: "/portfolio/02-joki-valorant/jv-1.png",
+            description:
+                "Jasa joki Valorant yang berhasil membantu 500+ player mencapai rank impian mereka. Dengan tingkat kepuasan 98% dan zero ban rate.",
+            images: [
+                "/portfolio/02-joki-valorant/jv-2.png",
+                "/portfolio/02-joki-valorant/jv-3.png",
+                "/portfolio/02-joki-valorant/jv-4.png",
+                "/portfolio/02-joki-valorant/jv-5.png",
+                "/portfolio/02-joki-valorant/jv-6.png",
+                "/portfolio/02-joki-valorant/jv-7.png",
+                "/portfolio/02-joki-valorant/jv-8.png",
+                "/portfolio/02-joki-valorant/jv-9.png",
+                "/portfolio/02-joki-valorant/jv-10.png",
+                "/portfolio/02-joki-valorant/jv-11.png",
+                "/portfolio/02-joki-valorant/jv-12.png",
+            ],
+            features: ["500+ Satisfied Customers", "98% Success Rate", "Zero Ban Rate", "24/7 Support"],
+            technology: ["Valorant", "Riot Vanguard", "Valorant Tracker"],
+            integration: ["Discord", "Valorant Tracker", "Progress Dashboard"],
+            link: "#",
         },
     ];
 
@@ -579,7 +603,7 @@ export default function PortfolioSection() {
                                                 <p className="text-white/80 leading-relaxed mb-4 text-sm line-clamp-3">
                                                     {truncateDescription(
                                                         portfolios[carouselIndex].description,
-                                                        150
+                                                        150,
                                                     )}
                                                 </p>
 
@@ -783,7 +807,7 @@ export default function PortfolioSection() {
                                                                 <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 mt-1.5 flex-shrink-0" />
                                                                 <span className="text-sm">{feature}</span>
                                                             </li>
-                                                        )
+                                                        ),
                                                     )}
                                                 </ul>
                                             </div>
@@ -801,7 +825,7 @@ export default function PortfolioSection() {
                                                             >
                                                                 {tech}
                                                             </span>
-                                                        )
+                                                        ),
                                                     )}
                                                 </div>
                                             </div>
@@ -817,7 +841,7 @@ export default function PortfolioSection() {
                                                             >
                                                                 {integration}
                                                             </span>
-                                                        )
+                                                        ),
                                                     )}
                                                 </div>
                                             </div>
