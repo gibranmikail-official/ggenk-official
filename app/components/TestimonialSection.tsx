@@ -69,13 +69,12 @@ export default function TestimonialSection() {
         },
         {
             id: 7,
-            name: "WEMZ",
-            title: "Interbond",
+            name: "Yuda Purboyo Sunu",
+            title: "YBS",
             service: "Discord Server Development",
-            rating: 5,
-            avatar: "/testi-pp/Wemz.png",
-            testimonial:
-                "masprodhitee server devnya gacor banget responsif, botnya useful, layoutnya juga simple tapi mudah dipahamin buat pemula, navigasinya juga terarah banget dan menyesuaikan user, pokonya gacorrr server developernya🫡🫡",
+            rating: 0,
+            avatar: "/testi-pp/ybs.jpg",
+            testimonial: "-",
         },
         {
             id: 8,
@@ -89,13 +88,41 @@ export default function TestimonialSection() {
         },
         {
             id: 9,
-            name: "Anggana G.",
-            title: "PT BFS Bintang Lima",
+            name: "WEMZ",
+            title: "Interbond",
+            service: "Discord Server Development",
+            rating: 5,
+            avatar: "/testi-pp/Wemz.png",
+            testimonial:
+                "masprodhitee server devnya gacor banget responsif, botnya useful, layoutnya juga simple tapi mudah dipahamin buat pemula, navigasinya juga terarah banget dan menyesuaikan user, pokonya gacorrr server developernya🫡🫡",
+        },
+        {
+            id: 10,
+            name: "A. G.",
+            title: "BFS Bintang Lima",
             service: "Logo Design",
             rating: 5,
             avatar: "/testi-pp/Anggana.png",
             testimonial:
                 "Logo yang dihasilkan sangat sesuai dengan visi brand kami. Simpel, berkarakter, dan terlihat profesional. Sangat direkomendasikan!",
+        },
+        {
+            id: 11,
+            name: "Nama",
+            title: "Title",
+            service: "Service",
+            rating: 0,
+            avatar: "/testi-pp/.png",
+            testimonial: "-",
+        },
+        {
+            id: 12,
+            name: "Nama",
+            title: "Title",
+            service: "Service",
+            rating: 0,
+            avatar: "/testi-pp/.png",
+            testimonial: "-",
         },
     ];
 

@@ -17,7 +17,8 @@ export default function PortfolioSection() {
             title: "Yuda Purboyo Sunu Discord Server",
             type: "Discord Server Development",
             thumbnail: "/portfolio/12-yps/yps.png",
-            description: "",
+            description:
+                "Server Discord resmi komunitas Yuda Purboyo Sunu yang dibangun dengan sistem komunitas yang rapi dan terstruktur. Server ini dilengkapi dengan berbagai fitur otomatisasi seperti auto-role, bot moderasi, sistem notifikasi, serta manajemen channel yang tertata untuk memudahkan interaksi antar member. Server ini dikembangkan oleh prodhite & Ugii.",
 
             images: [
                 "/portfolio/12-yps/yps.png",
@@ -44,7 +45,7 @@ export default function PortfolioSection() {
             ],
             technology: ["Discord", "Discord.Js"],
             integration: ["Discohook", "Moderation Tools", "Youtube"],
-            link: "https://discord.gg/KxkG6ZEJ32",
+            link: "https://discord.gg/wVwP58tgwJ",
         },
         {
             id: 2,
@@ -335,6 +336,16 @@ export default function PortfolioSection() {
                 "/portfolio/09-NimbusBobax/NB-07.png",
                 "/portfolio/09-NimbusBobax/NB-08.png",
             ],
+            features: [
+                "Auto Role System",
+                "Custom Bot Integration",
+                "Voice Channel Management",
+                "Private Channel",
+                "Adjust Permissions",
+            ],
+            technology: ["Discord", "Discord.Js"],
+            integration: ["Discohook", "Moderation Tools", "Youtube"],
+            link: "https://discord.gg/KxkG6ZEJ32",
         },
         {
             id: 10,
@@ -401,7 +412,7 @@ export default function PortfolioSection() {
             features: ["500+ Satisfied Customers", "98% Success Rate", "Zero Ban Rate", "24/7 Support"],
             technology: ["Valorant", "Riot Vanguard", "Valorant Tracker"],
             integration: ["Discord", "Valorant Tracker", "Progress Dashboard"],
-            link: "#",
+            link: "https://www.instagram.com/ggenk.official/",
         },
     ];
 

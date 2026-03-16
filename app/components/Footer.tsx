@@ -80,7 +80,7 @@ export default function Footer() {
 
                     {/* Copyright */}
                     <div className="space-y-2 text-white/60 text-sm">
-                        <p>© 2025 GGENK. All rights reserved.</p>
+                        <p>© 2026 GGENK. All rights reserved.</p>
                         <div className="flex items-center justify-center space-x-1">
                             <span>Built with</span>
                             <motion.div
