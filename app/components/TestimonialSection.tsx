@@ -106,24 +106,6 @@ export default function TestimonialSection() {
             testimonial:
                 "Logo yang dihasilkan sangat sesuai dengan visi brand kami. Simpel, berkarakter, dan terlihat profesional. Sangat direkomendasikan!",
         },
-        {
-            id: 11,
-            name: "Nama",
-            title: "Title",
-            service: "Service",
-            rating: 0,
-            avatar: "/testi-pp/.png",
-            testimonial: "-",
-        },
-        {
-            id: 12,
-            name: "Nama",
-            title: "Title",
-            service: "Service",
-            rating: 0,
-            avatar: "/testi-pp/.png",
-            testimonial: "-",
-        },
     ];
 
     const [currentIndex, setCurrentIndex] = useState(0);
