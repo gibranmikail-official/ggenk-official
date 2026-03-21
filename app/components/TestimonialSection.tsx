@@ -88,6 +88,16 @@ export default function TestimonialSection() {
         },
         {
             id: 9,
+            name: "A. G.",
+            title: "BFS Bintang Lima",
+            service: "Logo Design",
+            rating: 5,
+            avatar: "/testi-pp/Anggana.png",
+            testimonial:
+                "Logo yang dihasilkan sangat sesuai dengan visi brand kami. Simpel, berkarakter, dan terlihat profesional. Sangat direkomendasikan!",
+        },
+        {
+            id: 10,
             name: "WEMZ",
             title: "Interbond",
             service: "Discord Server Development",
@@ -97,14 +107,22 @@ export default function TestimonialSection() {
                 "masprodhitee server devnya gacor banget responsif, botnya useful, layoutnya juga simple tapi mudah dipahamin buat pemula, navigasinya juga terarah banget dan menyesuaikan user, pokonya gacorrr server developernya🫡🫡",
         },
         {
-            id: 10,
-            name: "A. G.",
-            title: "BFS Bintang Lima",
-            service: "Logo Design",
+            id: 11,
+            name: "Sabrin",
+            title: "Interbond",
+            service: "Discord Server Development",
             rating: 5,
-            avatar: "/testi-pp/Anggana.png",
-            testimonial:
-                "Logo yang dihasilkan sangat sesuai dengan visi brand kami. Simpel, berkarakter, dan terlihat profesional. Sangat direkomendasikan!",
+            avatar: "/testi-pp/sabrin.png",
+            testimonial: "puas banget nget nget nget. mas prodhite kerjanya sangat sat set say set",
+        },
+        {
+            id: 12,
+            name: "Rynaci",
+            title: "Interbond",
+            service: "Discord Server Development",
+            rating: 5,
+            avatar: "/testi-pp/rynaci.png",
+            testimonial: "Bintang berbicara lah intinya mah puas bgt, langsung gas aja",
         },
     ];
 

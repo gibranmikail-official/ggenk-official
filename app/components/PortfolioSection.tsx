@@ -300,6 +300,7 @@ export default function PortfolioSection() {
                 "/portfolio/13-intb/intb-04.png",
                 "/portfolio/13-intb/intb-05.png",
                 "/portfolio/13-intb/intb-06.png",
+                "/portfolio/13-intb/intb-17.png",
                 "/portfolio/13-intb/intb-07.png",
                 "/portfolio/13-intb/intb-08.png",
                 "/portfolio/13-intb/intb-09.png",
@@ -310,6 +311,8 @@ export default function PortfolioSection() {
                 "/portfolio/13-intb/intb-14.png",
                 "/portfolio/13-intb/intb-15.png",
                 "/portfolio/13-intb/intb-16.png",
+                "/portfolio/13-intb/intb-18.png",
+                "/portfolio/13-intb/intb-19.png",
             ],
             features: [
                 "Auto Role System",
